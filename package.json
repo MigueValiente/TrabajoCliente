@@ -1,0 +1,33 @@
+{
+  "name": "trabajocliente",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "./node_modules/.bin/babel src -d out",
+    "comprimir": "uglifyjs out/clases/* -cm -o out/archivo.min.js",
+    "estilo": "./node_modules/.bin/eslint src/clases/",
+    "build": "npm run estilo && npm run babel && npm run comprimir"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MigueValiente/TrabajoCliente.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MigueValiente/TrabajoCliente/issues"
+  },
+  "homepage": "https://github.com/MigueValiente/TrabajoCliente#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.8.0"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "uglify-js": "^3.4.9"
+  }
+
+}
+
