@@ -1,4 +1,4 @@
-class libro{
+class pelicula{
 
 	constructor(titulo,productora,director,fechaLanzamiento,genero,precio){
 		this.titulo = titulo;

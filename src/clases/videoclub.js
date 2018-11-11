@@ -1,4 +1,4 @@
-class tienda{
+class videoclub{
 
 	constructor(nombre,libros,direccion){
 		this.nombre = nombre;

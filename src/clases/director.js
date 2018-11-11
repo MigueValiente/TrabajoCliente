@@ -1,4 +1,4 @@
-class autor extends persona{
+class director extends persona{
 
 	constructor(nombre,apellidos){
 		super(nombre,apellidos);
