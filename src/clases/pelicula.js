@@ -1,5 +1,5 @@
 class pelicula{
-
+	//<div id="pelicula" data-id-pelicula = "$_GET["id"]"
 	constructor(titulo,productora,director,fechaLanzamiento,genero,precio){
 		this.titulo = titulo;
 		this.productora = productora;
@@ -57,4 +57,18 @@ class pelicula{
 		this._precio=precio;
 	}
 
+	mostrarEnHTML(nodoHTML){
+        let bloque = document.createElement("div");
+        bloque.className = "pelicula";
+        let titulo = document.createElement("h1");
+        titulo.innerHTML = this.nombre; 
+        let categoria = document.createElement("h2");
+        categoria.innerHTML = this.categoria;
+        let director = document.createElement("p");
+        director.innerHTML = this.director.nombre;
+        bloque.append(titulo);
+        bloque.append(categoria);
+        bloque.append(director);
+        nodoHTML.appendChild(bloque);
+    }
 }
