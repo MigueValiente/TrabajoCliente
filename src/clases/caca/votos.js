@@ -1,4 +1,4 @@
-class votos{
+class Votos{
 
 	constructor(puntuacion,comentario,cliente,libro){
 		this.puntuacion = puntuacion;

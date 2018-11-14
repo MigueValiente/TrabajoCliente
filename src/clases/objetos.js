@@ -1,32 +1,43 @@
 //Declarando Clientes
-let cliente1 = new cliente("Pepe","Espejo Roig","72146712K",954321231,"Calle Don Nadie, Nº213");
-let cliente2 = new cliente("Jorge","Baron Abad","72254571F",954367681,"Calle Don Alguien, Nº214");
+let cliente1 = new Cliente("Pepe","Espejo Roig","72146712K",954321231,"Calle Don Nadie, Nº213");
+let C2 = new Cliente("Jorge","Baron Abad","72254571F",954367681,"Calle Don Alguien, Nº214");
 
-//Declarar Autor
-let Whedon = new director("Joss","Whedon");
-let Favreau = new director("John","Favreau");
-let Derrickson = new director("Scott","Derrickson");
+//Declarar Director
+let directorWhedon = new Director("Joss","Whedon");
+let directorFavreau = new Director("John","Favreau");
+let directorDerrickson = new Director("Scott","Derrickson");
 
-//Declarando Libros
-let IronMan = new pelicula("Iron-Man","Marvel Studios",Favreau,"30/4/2008","Superheroes",12.95);
-let DoctorStrange = new pelicula("Doctor Strange","Marvel Studios",Derrickson,"14/7/1852","Superheroes",18.95);
-let Vengadores = new pelicula("Los Vengadores","Marvel Studios",Whedon,"4/5/2012","Superheroes",14.95);
+//Declarando peliculas
+let IronMan = new Pelicula("Iron-Man"/*,"Marvel Studios"*/,directorFavreau/*,"30/4/2008"*/,"Superheroes",/*12.95*/);
+let DoctorStrange = new Pelicula("Doctor Strange"/*,"Marvel Studios"*/,directorDerrickson/*,"14/7/1852"*/,"Superheroes"/*,18.95*/);
+let Vengadores = new Pelicula("Los Vengadores"/*,"Marvel Studios"*/,directorWhedon/*,"4/5/2012"*/,"Superheroes"/*,14.95*/);
 
-//Array de Libros
-let peliculasMarvel = [IronMan,Vengadores,DoctorStrange];
+//Array de peliculas
+let peliculas = [];
 
-//Declarar Libreria
-let videoclub = new videoclub("PAQUITO",peliculasMarvel,"Calle de la Piruleta, Nº7");
+peliculas.push(IronMan);
+peliculas.push(DoctorStrange);
+peliculas.push(Vengadores);
 
+//Declarar videoclub
+let videoclub = new Videoclub("PAQUITO","Calle de la Piruleta, Nº7");
+videoclub.incluirPeliculas(IronMan);
+videoclub.incluirPeliculas(DoctorStrange);
+videoclub.incluirPeliculas(Vengadores);
 
+//Añadiendo pelis a directores
+
+directorWhedon.incluirPeliculas(Vengadores);
+directorFavreau.incluirPeliculas(IronMan);
+directorDerrickson.incluirPeliculas(DoctorStrange);
 
 
 //Declarar Votos
-let voto1 = new votos(3,"Ezta peli no me a gustadio.",cliente1,Vengadores);
-let voto2 = new votos(5,"Me ha encatado este libro si señor",cliente1,IronMan);
+// let voto1 = new votos(3,"Ezta peli no me a gustadio.",cliente1,Vengadores);
+// let voto2 = new votos(5,"Me ha encatado este libro si señor",cliente1,IronMan);
 
-console.log(videoclub);
-console.log(cliente2);
-console.log(IronMan);
-console.log(Whedon);
-console.log(voto1);
+// console.log(videoclub);
+// console.log(cliente2);
+// console.log(IronMan);
+// console.log(Whedon);
+// console.log(voto1);

@@ -1,9 +1,9 @@
-class videoclub{
+class Videoclub{
 
-	constructor(nombre,libros,direccion){
+	constructor(nombre,direccion){
 		this.nombre = nombre;
-		this.peliculas = peliculas;
 		this.direccion = direccion;
+		this.peliculas = [];
 	}
 
 	get nombre(){
@@ -21,6 +21,9 @@ class videoclub{
 	set peliculas(peliculas){
 		this._peliculas=peliculas;
 	}
+	añadirPeliculas(pelicula){
+		this._peliculas.push(pelicula);
+	}
 
 	get direccion(){
 		return `${this._direccion}`;
@@ -28,5 +31,9 @@ class videoclub{
 
 	set direccion(direccion){
 		this._direccion=direccion;
+	}
+
+	incluirPeliculas(pelicula){
+		this._peliculas.push(pelicula);
 	}
 }

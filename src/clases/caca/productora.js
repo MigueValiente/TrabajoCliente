@@ -1,4 +1,4 @@
-class productora{
+class Productora{
 
 	constructor(nombre, peliculas){
 		this.nombre = nombre;

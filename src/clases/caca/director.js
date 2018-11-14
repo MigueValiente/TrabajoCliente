@@ -1,7 +1,8 @@
-class director extends persona{
+class Director extends Persona{
 
 	constructor(nombre,apellidos){
 		super(nombre,apellidos);
+		this.peliculas = [];
 	}
 
 	get nombre(){
@@ -20,11 +21,15 @@ class director extends persona{
 		this._apellidos=apellidos;
 	}
 
-	get libros(){
-		return `${this._libros}`;
+	get peliculas(){
+		return `${this._peliculas}`;
 	}
 
-	set libros(libros){
-		this._libros=libros;
+	set peliculas(peliculas){
+		this._peliculas=peliculas;
+	}
+
+	incluirPeliculas(pelicula){
+		this._peliculas.push(pelicula);
 	}
 }

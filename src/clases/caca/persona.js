@@ -1,4 +1,4 @@
-class persona{
+class Persona{
 
 	constructor(nombre,apellidos){
 		this.nombre = nombre;

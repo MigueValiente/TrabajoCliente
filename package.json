@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel": "./node_modules/.bin/babel src -d out",
-    "comprimir": "uglifyjs out/clases/* -cm -o out/archivo.min.js",
+    "comprimir": "uglifyjs out/clases/clases.js -cm -o out/clases.min.js",
     "estilo": "./node_modules/.bin/eslint src/clases/",
     "build": "npm run estilo && npm run babel && npm run comprimir"
   },

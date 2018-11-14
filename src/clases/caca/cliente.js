@@ -1,4 +1,4 @@
-class cliente extends persona{
+class Cliente extends Persona{
 
 	constructor(nombre,apellidos,dni,telefono,direccion){
 		super(nombre,apellidos);
@@ -54,6 +54,4 @@ class cliente extends persona{
 	set gustos(gustos){
 		this._gustos=gustos;
 	}
-
-
 }
