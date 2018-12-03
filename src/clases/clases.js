@@ -120,6 +120,10 @@ class Director extends Persona{
 	incluirPeliculas(pelicula){
 		this._peliculas.push(pelicula);
 	}
+
+	toString(){
+		return `${this.nombre} ${this.apellidos}`;
+	}
 }
 /*************************************************************************************************************/
 //VIDEOCLUB
@@ -191,7 +195,7 @@ class Productora{
 //PELICULA
 class Pelicula{
 	//<div id="pelicula" data-id-pelicula = "$_GET["id"]"
-	constructor(titulo,productora,director,fechaLanzamiento,genero,precio){
+	constructor(titulo,director,genero){
 		this.titulo = titulo;
 		// this.productora = productora;
 		this.director = director;
@@ -201,7 +205,7 @@ class Pelicula{
 	}
 
 	get titulo(){
-		return `${this._titulo}`;
+		return this._titulo;
 	}
 
 	set titulo(titulo){
@@ -217,7 +221,7 @@ class Pelicula{
 	// }
 
 	get director(){
-		return `${this._director}`;
+		return this._director;
 	}
 
 	set director(director){
@@ -233,7 +237,7 @@ class Pelicula{
 	// }
 
 	get genero(){
-		return `${this._genero}`;
+		return this._genero;
 	}
 
 	set genero(genero){
@@ -252,13 +256,14 @@ class Pelicula{
 		let bloque = document.createElement("div");
 		bloque.className = "pelicula";
 		let titulo = document.createElement("h1");
-		titulo.innerHTML = this.nombre; 
-		let categoria = document.createElement("h2");
-		categoria.innerHTML = this.categoria;
+		titulo.innerHTML = this.titulo; 
+		let genero = document.createElement("h2");
+		genero.innerHTML = this.genero;
 		let director = document.createElement("p");
-		director.innerHTML = this.director.nombre;
+		console.log(this.director);
+		director.innerHTML = `${this.director}`;
 		bloque.append(titulo);
-		bloque.append(categoria);
+		bloque.append(genero);
 		bloque.append(director);
 		nodoHTML.appendChild(bloque);
 	}

@@ -7,6 +7,8 @@ let directorWhedon = new Director("Joss","Whedon");
 let directorFavreau = new Director("John","Favreau");
 let directorDerrickson = new Director("Scott","Derrickson");
 
+let listaDirectores = [directorWhedon,directorFavreau,directorDerrickson];
+
 //Declarando peliculas
 let IronMan = new Pelicula("Iron-Man"/*,"Marvel Studios"*/,directorFavreau/*,"30/4/2008"*/,"Superheroes",/*12.95*/);
 let DoctorStrange = new Pelicula("Doctor Strange"/*,"Marvel Studios"*/,directorDerrickson/*,"14/7/1852"*/,"Superheroes"/*,18.95*/);
@@ -31,7 +33,7 @@ directorWhedon.incluirPeliculas(Vengadores);
 directorFavreau.incluirPeliculas(IronMan);
 directorDerrickson.incluirPeliculas(DoctorStrange);
 
-
+mostrarPeliculasHTML(peliculas);
 //Declarar Votos
 // let voto1 = new votos(3,"Ezta peli no me a gustadio.",cliente1,Vengadores);
 // let voto2 = new votos(5,"Me ha encatado este libro si señor",cliente1,IronMan);
