@@ -267,6 +267,33 @@ class Pelicula{
 		bloque.append(director);
 		nodoHTML.appendChild(bloque);
 	}
+
+	contieneTitulo(titulo){
+		let contiene = false;
+		let tituloTratado = tratarCadenasInput(titulo);
+		if(tituloTratado !== null){
+			contiene = this.titulo.toUpperCase().includes(tituloTratado);
+		}
+		return contiene;
+	}
+
+	contieneDirector(director){
+		let contiene = false;
+		let directorTratado = tratarCadenasInput(director);
+		if(directorTratado != null){
+			contiene = this.director.nombre.toUpperCase().includes(directorTratado);
+		}
+		return contiene;
+	}
+
+	contieneGenero(genero){
+		let contiene = false;
+		let generoTratado = tratarCadenasInput(genero);
+		if(generoTratado !== null){
+			contiene = this.genero.toUpperCase().includes(generoTratado);
+		}
+		return contiene;
+	}
 }
 /*************************************************************************************************************/
 //VOTOS
