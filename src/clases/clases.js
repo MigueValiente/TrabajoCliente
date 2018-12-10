@@ -34,6 +34,7 @@ class Cliente extends Persona{
 		this.dni = dni;
 		this.telefono = telefono;
 		this.direccion = direccion;
+		this.peliculasFav = [];
 	}
 
 	get nombre(){
@@ -76,12 +77,25 @@ class Cliente extends Persona{
 		this._direccion=direccion;
 	}
 
-	get gustos(){
-		return `${this._gustos}`;
+	get peliculasFav(){
+		return this._peliculasFav;
 	}
 
-	set gustos(gustos){
-		this._gustos=gustos;
+	set peliculasFav(peliculas){
+		this._peliculasFav=peliculas;
+	}
+
+	incluirPeliculasFav(pelicula){
+		this._peliculasFav.push(pelicula);
+	}
+
+	contieneNombre(nombre){
+		let contiene = false;
+		let nombreTratado = tratarCadenasInput(nombre);
+		if(nombreTratado !== null){
+			contiene = this.nombre.toUpperCase().includes(nombreTratado);
+		}
+		return contiene;
 	}
 }
 /*************************************************************************************************************/
@@ -110,7 +124,7 @@ class Director extends Persona{
 	}
 
 	get peliculas(){
-		return `${this._peliculas}`;
+		return this._peliculas;
 	}
 
 	set peliculas(peliculas){
@@ -144,7 +158,7 @@ class Videoclub{
 	}
 
 	get peliculas(){
-		return `${this._peliculas}`;
+		return this._peliculas;
 	}
 
 	set peliculas(peliculas){
@@ -260,7 +274,7 @@ class Pelicula{
 		let genero = document.createElement("h2");
 		genero.innerHTML = this.genero;
 		let director = document.createElement("p");
-		console.log(this.director);
+		// console.log(this.director);
 		director.innerHTML = `${this.director}`;
 		bloque.append(titulo);
 		bloque.append(genero);
@@ -290,7 +304,7 @@ class Pelicula{
 		let contiene = false;
 		let generoTratado = tratarCadenasInput(genero);
 		if(generoTratado !== null){
-			contiene = this.genero.toUpperCase().includes(generoTratado);
+			contiene = this.genero.toLocaleLowerCase().includes(generoTratado.toLocaleLowerCase());
 		}
 		return contiene;
 	}

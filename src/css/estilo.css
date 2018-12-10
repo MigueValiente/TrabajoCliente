@@ -21,3 +21,11 @@
 .error{
     color:red;
 }
+
+.divInput{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin-bottom: 20px;
+    border: solid black 1px;
+}
