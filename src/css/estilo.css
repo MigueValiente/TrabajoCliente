@@ -11,11 +11,11 @@
 }
 
 .incorrecto{
-    background-color:red;
+    background-color:rgba(255, 44, 44, 0.6);;
 }
 
 .correcto{
-    background-color:green;
+    background-color:rgba(48, 191, 44, 0.6);
 }
 
 .error{
@@ -28,4 +28,28 @@
     width: 25%;
     margin-bottom: 20px;
     border: solid black 1px;
+}
+
+.addForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 75%;
+    height: 100%;
+    margin-bottom: 10px;
+    
+}
+
+#crearPelicula{
+    width: 25%;
+}
+
+.añadirPelicula{
+    width: 50%;
+}
+
+.pelicula{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
 }

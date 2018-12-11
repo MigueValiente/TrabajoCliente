@@ -179,14 +179,15 @@ class Videoclub{
 	incluirPeliculas(pelicula){
 		this._peliculas.push(pelicula);
 	}
+
 }
 /*************************************************************************************************************/
 //PRODUCTORA
 class Productora{
 
-	constructor(nombre, peliculas){
+	constructor(nombre){
 		this.nombre = nombre;
-		this.peliculas = peliculas;
+		this.peliculas = [];
 	}
 
 	get nombre(){
@@ -198,23 +199,41 @@ class Productora{
 	}
 
 	get peliculas(){
-		return `${this._peliculas}`;
+		return this._peliculas;
 	}
 
 	set peliculas(peliculas){
 		this._peliculas=peliculas;
 	}
+
+	incluirPeliculas(pelicula){
+		this._peliculas.push(pelicula);
+	}
+
+	contieneNombre(nombre){
+		let contiene = false;
+		let nombreTratado = tratarCadenasInput(nombre);
+		if(nombreTratado !== null){
+			contiene = this.nombre.toUpperCase().includes(nombreTratado);
+		}
+		return contiene;
+	}
+
+	toString(){
+		return `${this.nombre}`;
+	}
 }
 /*************************************************************************************************************/
 //PELICULA
 class Pelicula{
+
 	//<div id="pelicula" data-id-pelicula = "$_GET["id"]"
-	constructor(titulo,director,genero){
+	constructor(titulo,director,genero,productora){
 		this.titulo = titulo;
-		// this.productora = productora;
 		this.director = director;
-		// this.fechaLanzamiento = fechaLanzamiento;
 		this.genero = genero;
+		this.productora = productora;
+		// this.fechaLanzamiento = fechaLanzamiento;
 		// this.precio = precio;
 	}
 
@@ -226,13 +245,13 @@ class Pelicula{
 		this._titulo=titulo;
 	}
 
-	// get productora(){
-	// 	return `${this._productora}`;
-	// }
+	get productora(){
+		return `${this._productora}`;
+	}
 
-	// set productora(productora){
-	// 	this._productora=productora;
-	// }
+	set productora(productora){
+		this._productora=productora;
+	}
 
 	get director(){
 		return this._director;
@@ -258,6 +277,14 @@ class Pelicula{
 		this._genero=genero;
 	}
 
+	// get id(){
+	// 	return this._id;
+	// }
+
+	// set id(id){
+	// 	this._id=id;
+	// }
+
 	// get precio(){
 	// 	return `${this._precio}`;
 	// }
@@ -269,16 +296,19 @@ class Pelicula{
 	mostrarEnHTML(nodoHTML){
 		let bloque = document.createElement("div");
 		bloque.className = "pelicula";
-		let titulo = document.createElement("h1");
+		let titulo = document.createElement("h2");
 		titulo.innerHTML = this.titulo; 
-		let genero = document.createElement("h2");
+		let genero = document.createElement("h3");
 		genero.innerHTML = this.genero;
 		let director = document.createElement("p");
 		// console.log(this.director);
 		director.innerHTML = `${this.director}`;
+		let productora = document.createElement("p");
+		productora.innerHTML = `${this.productora}`;
 		bloque.append(titulo);
 		bloque.append(genero);
 		bloque.append(director);
+		bloque.append(productora);
 		nodoHTML.appendChild(bloque);
 	}
 

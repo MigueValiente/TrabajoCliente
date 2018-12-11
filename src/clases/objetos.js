@@ -6,16 +6,40 @@ let clienteJorge = new Cliente("Jorge","Baron Abad","72254571F",954367681,"Calle
 let directorWhedon = new Director("Joss","Whedon");
 let directorFavreau = new Director("John","Favreau");
 let directorDerrickson = new Director("Scott","Derrickson");
-let directorWan = new Director("James","wan");
+let directorWan = new Director("James","Wan");
+let directorJackson = new Director("Peter","Jackson");
 
-let listaDirectores = [directorWhedon,directorFavreau,directorDerrickson,directorWan];
+let listaDirectores = [directorWhedon,directorFavreau,directorDerrickson,directorWan,directorJackson];
 let listaClientes = [clientePepe,clienteJorge];
 
+//Declarando Productoras
+let marvelStudio = new Productora("Marvel Studios");
+let newLineCinema = new Productora("New Line Cinema");
+let wingNutFilms = new Productora("WingNut Films");
+
 //Declarando peliculas
-let IronMan = new Pelicula("Iron-Man"/*,"Marvel Studios"*/,directorFavreau/*,"30/4/2008"*/,"Superheroes",/*12.95*/);
-let DoctorStrange = new Pelicula("Doctor Strange"/*,"Marvel Studios"*/,directorDerrickson/*,"14/7/1852"*/,"Superheroes"/*,18.95*/);
-let Vengadores = new Pelicula("Los Vengadores"/*,"Marvel Studios"*/,directorWhedon/*,"4/5/2012"*/,"Superheroes"/*,14.95*/);
-let Conjuring = new Pelicula("The Conjuring",directorWan,"Terror");
+let IronMan = new Pelicula("Iron-Man",directorFavreau/*,"30/4/2008"*/,"Superheroes",marvelStudio/*12.95*/);
+let DoctorStrange = new Pelicula("Doctor Strange",directorDerrickson/*,"14/7/1852"*/,"Superheroes",marvelStudio/*,18.95*/);
+let Vengadores = new Pelicula("Los Vengadores",directorWhedon/*,"4/5/2012"*/,"Superheroes",marvelStudio/*,14.95*/);
+let Conjuring = new Pelicula("The Conjuring",directorWan,"Terror",newLineCinema);
+let SeñorAnillos1 = new Pelicula("La Comunidad del Anillo",directorJackson,"Fantasia",wingNutFilms);
+let SeñorAnillos2 = new Pelicula("La Dos Torres",directorJackson,"Fantasia",wingNutFilms);
+let SeñorAnillos3 = new Pelicula("El Retorno del Rey",directorJackson,"Fantasia",wingNutFilms);
+
+//Añadiendo peliculas al array de las Productoras
+marvelStudio.incluirPeliculas(IronMan);
+marvelStudio.incluirPeliculas(DoctorStrange);
+marvelStudio.incluirPeliculas(Vengadores);
+
+newLineCinema.incluirPeliculas(Conjuring);
+
+wingNutFilms.incluirPeliculas(SeñorAnillos1);
+wingNutFilms.incluirPeliculas(SeñorAnillos2);
+wingNutFilms.incluirPeliculas(SeñorAnillos3);
+
+//Array de Productoras
+
+let listaProductoras = [marvelStudio,newLineCinema,wingNutFilms];
 
 //Array de peliculas
 let peliculas = [];
@@ -24,6 +48,9 @@ peliculas.push(IronMan);
 peliculas.push(DoctorStrange);
 peliculas.push(Vengadores);
 peliculas.push(Conjuring);
+peliculas.push(SeñorAnillos1);
+peliculas.push(SeñorAnillos2);
+peliculas.push(SeñorAnillos3);
 
 //Declarar videoclub
 let videoclub = new Videoclub("PAQUITO","Calle de la Piruleta, Nº7");
@@ -31,6 +58,9 @@ videoclub.incluirPeliculas(IronMan);
 videoclub.incluirPeliculas(DoctorStrange);
 videoclub.incluirPeliculas(Vengadores);
 videoclub.incluirPeliculas(Conjuring);
+videoclub.incluirPeliculas(SeñorAnillos1);
+videoclub.incluirPeliculas(SeñorAnillos2);
+videoclub.incluirPeliculas(SeñorAnillos3);
 
 //Añadir peliculas favoritas a los clientes
 
@@ -46,6 +76,9 @@ directorWhedon.incluirPeliculas(Vengadores);
 directorFavreau.incluirPeliculas(IronMan);
 directorDerrickson.incluirPeliculas(DoctorStrange);
 directorWan.incluirPeliculas(Conjuring);
+directorJackson.incluirPeliculas(SeñorAnillos1);
+directorJackson.incluirPeliculas(SeñorAnillos2);
+directorJackson.incluirPeliculas(SeñorAnillos3);
 
 mostrarPeliculasHTML(peliculas);
 //Declarar Votos

@@ -23,6 +23,38 @@
     </header>
     <main>
         <section>
+            <form action="" id="crearPelicula">
+                <fieldset>
+                    <legend>Añadir Pelicula</legend>
+                    <div class="addForm">
+                        <label for="titulo">Titulo</label>
+                        <input type="text" name="titulo" id="titulo" placeholder="Titulo de la pelicula">
+
+                        <label for="nombre">Nombre del Director</label>
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre del director">
+                        
+                        <label for="apellido">Apellido del Director</label>
+                        <input type="text" name="apellido" id="apellido" placeholder="Apellido del director">
+
+                        <label for="genero">Género</label>
+                        <select id="genero" name="genero">
+                                <option value="">-Seleccionar-</option>
+                                <option value="superheroes">Superheroes</option>
+                                <option value="terror">Terror</option>
+                                <option value="fantasia">Fantasia</option>
+                                <option value="musical">Musical</option>
+                        </select>
+
+                        <label for="nombreP">Nombre de la Productora</label>
+                        <input type="text" name="nombreP" id="nombreP" placeholder="Nombre de la Productora">
+
+                        <button type="button" class="añadirPelicula" id="añadirPelicula">Añadir Pelicula</button>
+                    </div>
+                </fieldset>
+
+            </form>
+        </section>
+        <section>
             <h1>PELICULAS</h1>
             <div id="peliculas">
                     
@@ -32,7 +64,8 @@
     
     
     <script src="../funciones/utilidades.js" cache="false" defer></script>
-    <script src="../../out/clases.min.js" cache="false" defer></script>
+    <script src="../funciones/edicion.js" cache="false" defer></script>
     <script src="../clases/clases.js" cache="false" defer></script>
+    <script src="../clases/objetos.js" cache="false" defer></script>
 </body>
 </html>

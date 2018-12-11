@@ -4,10 +4,10 @@ FUNCIONES
     ✅Función que  deberá devolver los elementos filtrados por dos campos especificados por el alumno en el código.
     ✅Función que deberá devolver un elemento que sea similiar a otro. Los detalles que determinan si en elemento es similar a otro deberá especificarlo el alumno en el código.
     ✅ Función que busca los elementos asociados a un usuario.
-    ❎ Una función definida por el alumno y que encaje en la funcionalidad de la página.
+    ✅ Una función definida por el alumno y que encaje en la funcionalidad de la página.
   * Página de Edición:
-    ❎ Función que cree o edite el elemento principal de la página.
-    ❎ Función que valide todos los campos de creación del elemento principal de la página. El alumno debe detallar los requisitos que deben cumplirse para que sea válido.
+    ✅ Función que cree o edite el elemento principal de la página.
+    ✅ Función que valide todos los campos de creación del elemento principal de la página. El alumno debe detallar los requisitos que deben cumplirse para que sea válido.
     ❎ Función que debe añadir o cambiar el usuario que esta asociado al elemento. SI el elemento no tiene usuarios asociados, se crea. Si el elemento tiene un usuario asociado, se cambia. (CAMBIAR DIRECTOR)
     ❎ Una función definida por el alumno y que encaje en la funcionalidad de la página.
   * Página de Gestión:

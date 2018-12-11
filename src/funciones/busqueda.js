@@ -34,6 +34,7 @@ function mismoGenero(genero){
     return peliculasResultantes;
 }
 
+//Filtrar por peliculas favoritas del usuario
 function filtrarUsuario(){
     let inputUsuario = document.getElementById("usuario");
     let nombre = inputUsuario.value.trim().toUpperCase();
@@ -43,21 +44,34 @@ function filtrarUsuario(){
 
 function peliculasUsuario(nombre){
     let usuario = listaClientes.find( cliente => cliente.contieneNombre(nombre));
-    debugger;
     return usuario.peliculasFav;
 }
 
+//Filtrar por productora
 
+function filtrarProductora(){
+    let inputProductora = document.getElementById("productora");
+    let nombre = inputProductora.value.trim().toUpperCase();
+    let peliculasProductora = peliculasP(nombre);
+    mostrarPeliculasHTML(peliculasProductora);
+}
+
+function peliculasP(nombre){
+    let productora = listaProductoras.find( productora => productora.contieneNombre(nombre));
+    return productora.peliculas;
+}
 //Obtencion de botones
 let botonBuscar = document.getElementById("botonBusqueda");
 let botonReset = document.getElementById("botonReset");
 let botonGenero = document.getElementById("botonGenero");
 let botonUsuario = document.getElementById("botonUsuario");
+let botonProductora = document.getElementById("botonProductora");
 
 //Agregar eventos
 botonBuscar.addEventListener("click", filtrarTituloDirector);
 botonReset.addEventListener("click", resetearFiltros);
 botonGenero.addEventListener("click",filtrarGenero);
 botonUsuario.addEventListener("click",filtrarUsuario);
+botonProductora.addEventListener("click",filtrarProductora);
 
 
