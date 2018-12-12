@@ -11,7 +11,7 @@ function tratarCadenasInput(cadena){
 }
 
 function mostrarPeliculasHTML(peliculasMostrar){
-    let divPeliculas  = document.getElementById("peliculas");
+    let divPeliculas  = document.getElementById("peliculasMostrar");
     divPeliculas.innerHTML = "";
     if(peliculasMostrar.length === 0){
         divPeliculas.innerHTML = "NO HAY PELICULAS QUE MOSTRAR";
@@ -21,6 +21,6 @@ function mostrarPeliculasHTML(peliculasMostrar){
 }
 
 function incluirPeliculaHTML(pelicula){
-    let divPeliculas  = document.getElementById("peliculas");
+    let divPeliculas  = document.getElementById("peliculasMostrar");
     pelicula.mostrarEnHTML(divPeliculas);
 }

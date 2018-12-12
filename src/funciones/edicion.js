@@ -4,7 +4,9 @@ function añadirPelicula(){
     let inputNombreD = document.getElementById("nombre");
     let inputApellidoD = document.getElementById("apellido");
     let inputGenero = document.getElementById("genero");
-    let inputNombreP = document.getElementById("nombreP");
+	let inputNombreP = document.getElementById("nombreP");
+
+	vaciarInputPadre(inputTitulo);
 
     let esTituloCorrecto = validarTituloPelicula(inputTitulo);
     let esNombreDCorrecto = validarNombreD(inputNombreD);
@@ -27,12 +29,19 @@ function añadirPelicula(){
         }
 
         if(peli === undefined){
-            peli = new Pelicula(inputTitulo.value,inputGenero.value,director,productora);
+            peli = new Pelicula(inputTitulo.value,director,inputGenero.value,productora);
             peliculas.push(peli);
             incluirPeliculaHTML(peli);
             director.incluirPeliculas(peli);
             productora.incluirPeliculas(peli);
-        }
+		}
+		let inputPelicula = document.getElementById("pelicula");
+		let opcion = document.createElement("option");
+		opcion.className = "opcion";
+		opcion.setAttribute("value", peli.titulo);
+		opcion.innerHTML = peli.titulo;
+		inputPelicula.appendChild(opcion);
+		
     }
     
 }
@@ -51,9 +60,23 @@ function validarTituloPelicula(inputTitulo){
 	return esCorrecto;
 }
 
+function validarPeliculaSeleccionada(inputPelicula){
+	let esCorrecto = false;
+	let peliculaTratada = tratarCadenasInput(inputPelicula.value);
+
+	if(peliculaTratada === null || peliculaTratada.length <= 1){
+		marcarInputComoErroneo(inputPelicula,'Debe seleccionar una pelicula');
+	}else{
+		esCorrecto = true;
+		marcarInputComoCorrecto(inputPelicula);
+	}
+	return esCorrecto;
+}
+
 //VALIDACION DEL NOMBRE DEL DIRECTOR
 function validarNombreD(inputNombreD){
 	let esCorrecto = false;
+	// debugger;
 	let nombreTratado = tratarCadenasInput(inputNombreD.value);
 	let expresion = /^[A-Z]{2,}$/g
 	if(!expresion.test(nombreTratado)){
@@ -106,11 +129,16 @@ function validarNombreP(inputNombreP){
 	}
 	return esCorrecto;
 }
-
+//METER LOS ERRORES EN UN DIV Y HACER A LA HORA DE VALIDAR UN INNERHTML = ""
 function vaciarInputPadre(input){
     let padre = input.parentNode;
-    let errores = document.getElementsByClassName("error");
-    for (let error of errores) {
+    let errores = padre.getElementsByClassName("error");
+	for (let i = 0; i < errores.length; i++) {
+		const element = array[i];
+		
+	}
+	
+	for (let error of errores) {
         padre.removeChild(error);
     }
 }
@@ -119,9 +147,13 @@ function vaciarInputPadre(input){
 function marcarInputComoCorrecto(input){
 	input.className  = 'correcto';
 	let padre = input.parentNode;
+	debugger;
 	let spanError = document.querySelectorAll(`#${input.id} + span`);
 	if(spanError.length > 0){
-		padre.removeChild(spanError[0]);
+		for (let i = 0; i < spanError.length; i++) {
+			padre.removeChild(spanError[i]);
+			
+		}
 	}
 }
 
@@ -131,23 +163,24 @@ function marcarInputComoErroneo(input,textoError){
 	let padre = input.parentNode;
 	let spanError = document.querySelectorAll(`#${input.id} + span`);
 	if(spanError.length === 0){
-		let spanNuevo = document.createElement('span');
+		let spanNuevo = document.createElement("span");
 		spanNuevo.className = 'error';
 		spanNuevo.innerHTML = textoError;
-		padre.appendChild(spanNuevo);
+		padre.appendChild(spanNuevo.cloneNode(true));
 	}
 }
 
-function cambiarDirector(){
-	let inputPelicula = document.getElementById["pelicula"];
-	let inputNuevoNombre = document.getElementById["nombreD"];
-	let inputNuevoApellido = document.getElementById["apellidoD"];
+function cambiarDirectorActual(){
+	let inputPelicula = document.getElementById("pelicula");
+	let inputNuevoNombre = document.getElementById("nombreD");
+	let inputNuevoApellido = document.getElementById("apellidoD");
 
 	let esNuevoNombreCorrecto = validarNombreD(inputNuevoNombre);
 	let esNuevoApellidoCorrecto = validarApellidoD(inputNuevoApellido);
-	let esTituloCorrecto = validarTituloPelicula(inputPelicula.value);
+	let esPeliculaCorrecto = validarPeliculaSeleccionada(inputPelicula);
+	// let esTituloCorrecto = validarTituloPelicula(inputPelicula.value);
 
-	if(esNuevoNombreCorrecto && esNuevoApellidoCorrecto && esTituloCorrecto){
+	if(esNuevoNombreCorrecto && esNuevoApellidoCorrecto && esPeliculaCorrecto){
 		let nuevoDirector = new Director(inputNuevoNombre.value,inputNuevoApellido.value);
 		listaDirectores.push(nuevoDirector);
 		let pelicula = peliculas.find(pelicula => pelicula.titulo === inputPelicula.value);
@@ -155,18 +188,47 @@ function cambiarDirector(){
 		if(pelicula !== undefined){
 			pelicula.Director = nuevoDirector;
 		}
+		let peliculaSeleccionada = document.querySelector(`div[data-identificador = ${inputPelicula.value}]`);
+		let directorActual = peliculaSeleccionada.querySelector("p[data-identificador = director]");
+		directorActual.innerHTML = `${nuevoDirector}`;
 	}
+	
+}
+
+function cambiarProductoraActual(){
+	let inputNuevoNombre = document.getElementById("nombreProductora");
+	let inputPelicula = document.getElementById("peliculaP");
+
+	let esNuevoNombreCorrecto = validarNombreP(inputNuevoNombre);
+	let esPeliculaCorrecto = validarPeliculaSeleccionada(inputPelicula);
+	// let esTituloCorrecto = validarTituloPelicula(inputPelicula.value);
+
+	if(esNuevoNombreCorrecto && esPeliculaCorrecto){
+		let nuevaProductora = new Productora(inputNuevoNombre.value);
+		listaProductoras.push(nuevaProductora);
+		let pelicula = peliculas.find(pelicula => pelicula.titulo === inputPelicula.value);
+
+		if(pelicula !== undefined){
+			pelicula.Productora = nuevaProductora;
+		}
+		let peliculaSeleccionada = document.querySelector(`div[data-identificador = ${inputPelicula.value}]`);
+		let productoraActual = peliculaSeleccionada.querySelector("p[data-identificador = productora]");
+		productoraActual.innerHTML = `${nuevaProductora}`;
+	}
+	
 }
 
 function crearOpciones(){
 	let inputPelicula = document.getElementById("pelicula");
+	let inputPeliculaP = document.getElementById("peliculaP");
 	// debugger;
 	for (let pelicula of peliculas) {
 		let opcion = document.createElement("option");
 		opcion.className = "opcion";
-		opcion.value(pelicula.titulo);
+		opcion.setAttribute("value", pelicula.titulo);
 		opcion.innerHTML = pelicula.titulo;
 		inputPelicula.appendChild(opcion);
+		inputPeliculaP.appendChild(opcion.cloneNode(true));
 	}
 }
 
@@ -181,19 +243,27 @@ function blur(event){
 }
 
 //CONSIGUIENDO BOTON DEL FORMULARIO
-let boton = document.getElementById("añadirPelicula");
-
+let botonNuevaPelicula = document.getElementById("añadirPelicula");
+let botonCambiarDirector = document.getElementById("cambiarDirector");
+let botonCambiarProductora = document.getElementById("cambiarProductora");
 //Obtencion de input de tipo text
 let inputsText = document.getElementsByClassName("inputForm");
 
 //AÑADIENDO EL EVENTO AL BOTON
 
-boton.addEventListener("click",añadirPelicula);
+botonNuevaPelicula.addEventListener("click",añadirPelicula);
+botonCambiarDirector.addEventListener("click",cambiarDirectorActual);
+botonCambiarProductora.addEventListener("click",cambiarProductoraActual);
 
 for (let i = 0; i < inputsText.length; i++) {
     inputsText[i].addEventListener("focus",focus);
     inputsText[i].addEventListener("blur",blur);
 }
 
-//Creando opciones formulario cambiar director
-// crearOpciones();
+
+
+document.addEventListener("DOMContentLoaded", function(event) {
+	//Creando opciones formulario cambiar director
+	crearOpciones();
+});
+

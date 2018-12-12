@@ -23,7 +23,7 @@
     </header>
     <main id="edicionForms">
         <section class="form">
-            <form action="" id="crearPelicula">
+            <form action="" id="FormularioCrearPelicula">
                 <fieldset>
                     <legend>Añadir Pelicula</legend>
                     <div class="addForm">
@@ -55,11 +55,11 @@
         </section>
 
         <section class="form">
-            <form action="" id="cambiarDirector">
+            <form action="" id="FormularioCambiarDirectorForm">
                 <fieldset>
                     <legend>Cambiar Director</legend>
                     <div class="changeForm">
-                        <label for="genero">Pelicula</label>
+                        <label for="pelicula">Pelicula</label>
                         <select id="pelicula" name="pelicula">
                                 <option value="">-Seleccionar-</option>
                                 
@@ -71,7 +71,27 @@
                         <label for="apellido">Apellido del Director</label>
                         <input type="text" name="apellidoD" id="apellidoD" class="inputForm" placeholder="Apellido del director">
 
-                        <button type="button" class="añadirPelicula" id="añadirPelicula">Cambiar Director</button>
+                        <button type="button" class="cambiarDirector" id="cambiarDirector">Cambiar Director</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+        <section class="form">
+            <form action="" id="FormularioCambiarProductora">
+                <fieldset>
+                    <legend>Cambiar Productora</legend>
+                    <div class="changeForm">
+                        <label for="peliculaP">Pelicula</label>
+                        <select id="peliculaP" name="peliculaP">
+                                <option value="">-Seleccionar-</option>
+                                
+                        </select>
+
+                        <label for="nombre">Nombre de la Productora</label>
+                        <input type="text" name="nombreProductora" id="nombreProductora" class="inputForm" placeholder="Nombre de la productora">
+
+                        <button type="button" class="cambiarProductora" id="cambiarProductora">Cambiar Productora</button>
                     </div>
                 </fieldset>
             </form>
@@ -79,7 +99,7 @@
 
         <section>
             <h1>PELICULAS</h1>
-            <div id="peliculas">
+            <div id="peliculasMostrar">
                     
             </div>
         </section>

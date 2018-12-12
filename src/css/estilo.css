@@ -1,4 +1,4 @@
-#peliculas{
+#peliculasMostrar{
     width:100;
     display: flex;
     flex-wrap: wrap;
@@ -50,17 +50,19 @@
     
 }
 
-/* main[id = "edicionForms"] > section[class = "form"]{
+main[id = "edicionForms"]{
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-} */
+}
 
 #crearPelicula{
-    width: 25%;
+    width: 100%;
 }
 
 #cambiarDirector{
-    width: 25%;
+    width: 100%;
 }
 
 .añadirPelicula{
@@ -71,4 +73,12 @@
     margin-right: 10px;
     margin-bottom: 10px;
     text-align: center;
+}
+
+.form{
+    width: 30%;
+}
+
+#cambiarDirectorForm{
+    width: 100%;
 }

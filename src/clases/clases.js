@@ -297,15 +297,20 @@ class Pelicula{
 	mostrarEnHTML(nodoHTML){
 		let bloque = document.createElement("div");
 		bloque.className = "pelicula";
+		bloque.setAttribute("data-identificador",this.titulo);
 		let titulo = document.createElement("h2");
 		titulo.innerHTML = this.titulo; 
+		titulo.setAttribute("data-identificador","titulo");
 		let genero = document.createElement("h3");
 		genero.innerHTML = this.genero;
+		genero.setAttribute("data-identificador","genero");
 		let director = document.createElement("p");
 		// console.log(this.director);
 		director.innerHTML = `${this.director}`;
+		director.setAttribute("data-identificador","director");
 		let productora = document.createElement("p");
 		productora.innerHTML = `${this.productora}`;
+		productora.setAttribute("data-identificador", "productora");
 		bloque.append(titulo);
 		bloque.append(genero);
 		bloque.append(director);
