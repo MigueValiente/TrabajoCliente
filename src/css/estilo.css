@@ -40,7 +40,26 @@
     
 }
 
+.changeForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 75%;
+    height: 100%;
+    margin-bottom: 10px;
+    
+}
+
+/* main[id = "edicionForms"] > section[class = "form"]{
+    display: flex;
+    flex-direction: row;
+} */
+
 #crearPelicula{
+    width: 25%;
+}
+
+#cambiarDirector{
     width: 25%;
 }
 

@@ -188,6 +188,7 @@ class Productora{
 	constructor(nombre){
 		this.nombre = nombre;
 		this.peliculas = [];
+		this.votos = [];
 	}
 
 	get nombre(){
@@ -343,7 +344,7 @@ class Pelicula{
 //VOTOS
 class Votos{
 
-	constructor(puntuacion,comentario,cliente,libro){
+	constructor(puntuacion,comentario,cliente,pelicula){
 		this.puntuacion = puntuacion;
 		this.comentario = comentario;
 		this.cliente = cliente;

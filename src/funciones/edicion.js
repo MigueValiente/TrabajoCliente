@@ -55,8 +55,8 @@ function validarTituloPelicula(inputTitulo){
 function validarNombreD(inputNombreD){
 	let esCorrecto = false;
 	let nombreTratado = tratarCadenasInput(inputNombreD.value);
-
-	if(nombreTratado === null || nombreTratado.length <= 1){
+	let expresion = /^[A-Z]{2,}$/g
+	if(!expresion.test(nombreTratado)){
 		marcarInputComoErroneo(inputNombreD,'El nombre del director es erroneo');
 	}else{
 		esCorrecto = true;
@@ -138,9 +138,62 @@ function marcarInputComoErroneo(input,textoError){
 	}
 }
 
+function cambiarDirector(){
+	let inputPelicula = document.getElementById["pelicula"];
+	let inputNuevoNombre = document.getElementById["nombreD"];
+	let inputNuevoApellido = document.getElementById["apellidoD"];
+
+	let esNuevoNombreCorrecto = validarNombreD(inputNuevoNombre);
+	let esNuevoApellidoCorrecto = validarApellidoD(inputNuevoApellido);
+	let esTituloCorrecto = validarTituloPelicula(inputPelicula.value);
+
+	if(esNuevoNombreCorrecto && esNuevoApellidoCorrecto && esTituloCorrecto){
+		let nuevoDirector = new Director(inputNuevoNombre.value,inputNuevoApellido.value);
+		listaDirectores.push(nuevoDirector);
+		let pelicula = peliculas.find(pelicula => pelicula.titulo === inputPelicula.value);
+
+		if(pelicula !== undefined){
+			pelicula.Director = nuevoDirector;
+		}
+	}
+}
+
+function crearOpciones(){
+	let inputPelicula = document.getElementById("pelicula");
+	// debugger;
+	for (let pelicula of peliculas) {
+		let opcion = document.createElement("option");
+		opcion.className = "opcion";
+		opcion.value(pelicula.titulo);
+		opcion.innerHTML = pelicula.titulo;
+		inputPelicula.appendChild(opcion);
+	}
+}
+
+function focus(event){
+    let input = event.target;
+    input.style.backgroundColor = "rgba(15, 191, 219, 0.2)";
+}
+
+function blur(event){
+    let input = event.target;
+    input.style.backgroundColor = "";
+}
+
 //CONSIGUIENDO BOTON DEL FORMULARIO
 let boton = document.getElementById("añadirPelicula");
+
+//Obtencion de input de tipo text
+let inputsText = document.getElementsByClassName("inputForm");
 
 //AÑADIENDO EL EVENTO AL BOTON
 
 boton.addEventListener("click",añadirPelicula);
+
+for (let i = 0; i < inputsText.length; i++) {
+    inputsText[i].addEventListener("focus",focus);
+    inputsText[i].addEventListener("blur",blur);
+}
+
+//Creando opciones formulario cambiar director
+// crearOpciones();

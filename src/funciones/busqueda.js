@@ -60,6 +60,16 @@ function peliculasP(nombre){
     let productora = listaProductoras.find( productora => productora.contieneNombre(nombre));
     return productora.peliculas;
 }
+
+function focus(event){
+    let input = event.target;
+    input.style.backgroundColor = "rgba(15, 191, 219, 0.2)";
+}
+
+function blur(event){
+    let input = event.target;
+    input.style.backgroundColor = "";
+}
 //Obtencion de botones
 let botonBuscar = document.getElementById("botonBusqueda");
 let botonReset = document.getElementById("botonReset");
@@ -67,11 +77,19 @@ let botonGenero = document.getElementById("botonGenero");
 let botonUsuario = document.getElementById("botonUsuario");
 let botonProductora = document.getElementById("botonProductora");
 
+//Obtencion de input de tipo text
+let inputsText = document.getElementsByClassName("inputForm");
+
 //Agregar eventos
 botonBuscar.addEventListener("click", filtrarTituloDirector);
 botonReset.addEventListener("click", resetearFiltros);
 botonGenero.addEventListener("click",filtrarGenero);
 botonUsuario.addEventListener("click",filtrarUsuario);
 botonProductora.addEventListener("click",filtrarProductora);
+
+for (let i = 0; i < inputsText.length; i++) {
+    inputsText[i].addEventListener("focus",focus);
+    inputsText[i].addEventListener("blur",blur);
+}
 
 

@@ -21,20 +21,20 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section>
+    <main id="edicionForms">
+        <section class="form">
             <form action="" id="crearPelicula">
                 <fieldset>
                     <legend>Añadir Pelicula</legend>
                     <div class="addForm">
                         <label for="titulo">Titulo</label>
-                        <input type="text" name="titulo" id="titulo" placeholder="Titulo de la pelicula">
+                        <input type="text" name="titulo" id="titulo" class="inputForm" placeholder="Titulo de la pelicula">
 
                         <label for="nombre">Nombre del Director</label>
-                        <input type="text" name="nombre" id="nombre" placeholder="Nombre del director">
+                        <input type="text" name="nombre" id="nombre" class="inputForm" placeholder="Nombre del director">
                         
                         <label for="apellido">Apellido del Director</label>
-                        <input type="text" name="apellido" id="apellido" placeholder="Apellido del director">
+                        <input type="text" name="apellido" id="apellido" class="inputForm" placeholder="Apellido del director">
 
                         <label for="genero">Género</label>
                         <select id="genero" name="genero">
@@ -46,14 +46,37 @@
                         </select>
 
                         <label for="nombreP">Nombre de la Productora</label>
-                        <input type="text" name="nombreP" id="nombreP" placeholder="Nombre de la Productora">
+                        <input type="text" name="nombreP" id="nombreP" class="inputForm" placeholder="Nombre de la Productora">
 
                         <button type="button" class="añadirPelicula" id="añadirPelicula">Añadir Pelicula</button>
                     </div>
                 </fieldset>
-
             </form>
         </section>
+
+        <section class="form">
+            <form action="" id="cambiarDirector">
+                <fieldset>
+                    <legend>Cambiar Director</legend>
+                    <div class="changeForm">
+                        <label for="genero">Pelicula</label>
+                        <select id="pelicula" name="pelicula">
+                                <option value="">-Seleccionar-</option>
+                                
+                        </select>
+
+                        <label for="nombre">Nombre del Director</label>
+                        <input type="text" name="nombreD" id="nombreD" class="inputForm" placeholder="Nombre del director">
+                        
+                        <label for="apellido">Apellido del Director</label>
+                        <input type="text" name="apellidoD" id="apellidoD" class="inputForm" placeholder="Apellido del director">
+
+                        <button type="button" class="añadirPelicula" id="añadirPelicula">Cambiar Director</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
         <section>
             <h1>PELICULAS</h1>
             <div id="peliculas">
