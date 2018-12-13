@@ -35,6 +35,7 @@ class Cliente extends Persona{
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.peliculasFav = [];
+		this.votos = [];
 	}
 
 	get nombre(){
@@ -188,7 +189,6 @@ class Productora{
 	constructor(nombre){
 		this.nombre = nombre;
 		this.peliculas = [];
-		this.votos = [];
 	}
 
 	get nombre(){
@@ -234,6 +234,7 @@ class Pelicula{
 		this.director = director;
 		this.genero = genero;
 		this.productora = productora;
+		this.votos = [];
 		// this.fechaLanzamiento = fechaLanzamiento;
 		// this.precio = precio;
 	}
@@ -297,7 +298,7 @@ class Pelicula{
 	mostrarEnHTML(nodoHTML){
 		let bloque = document.createElement("div");
 		bloque.className = "pelicula";
-		bloque.setAttribute("data-identificador",this.titulo);
+		bloque.setAttribute("data-identificador",quitarEspacios(this.titulo));
 		let titulo = document.createElement("h2");
 		titulo.innerHTML = this.titulo; 
 		titulo.setAttribute("data-identificador","titulo");
@@ -310,7 +311,7 @@ class Pelicula{
 		director.setAttribute("data-identificador","director");
 		let productora = document.createElement("p");
 		productora.innerHTML = `${this.productora}`;
-		productora.setAttribute("data-identificador", "productora");
+		productora.setAttribute("data-identificador","productora");
 		bloque.append(titulo);
 		bloque.append(genero);
 		bloque.append(director);

@@ -1,3 +1,7 @@
+let divErroresPeliculaNueva = document.getElementById("erroresPeliNueva");
+let divErroresCambiarDirector = document.getElementById("erroresCambiarDirector");
+let divErroresCambiarProductora = document.getElementById("erroresCambiarProductora");
+
 //FUNCION PARA AÑADIR LA PELICULA NUEVA
 function añadirPelicula(){
     let inputTitulo = document.getElementById("titulo");
@@ -6,13 +10,13 @@ function añadirPelicula(){
     let inputGenero = document.getElementById("genero");
 	let inputNombreP = document.getElementById("nombreP");
 
-	vaciarInputPadre(inputTitulo);
+	vaciarDivErrores(divErroresPeliculaNueva);
 
-    let esTituloCorrecto = validarTituloPelicula(inputTitulo);
-    let esNombreDCorrecto = validarNombreD(inputNombreD);
-    let esApellidoCorrecto = validarApellidoD(inputApellidoD);
-    let esGeneroCorrecto = validarGenero(inputGenero);
-    let esNombrePCorrecto = validarNombreP(inputNombreP);
+    let esTituloCorrecto = validarTituloPelicula(inputTitulo,divErroresPeliculaNueva);
+    let esNombreDCorrecto = validarNombreD(inputNombreD,divErroresPeliculaNueva);
+    let esApellidoCorrecto = validarApellidoD(inputApellidoD,divErroresPeliculaNueva);
+    let esGeneroCorrecto = validarGenero(inputGenero,divErroresPeliculaNueva);
+    let esNombrePCorrecto = validarNombreP(inputNombreP,divErroresPeliculaNueva);
 
     if(esTituloCorrecto && esNombreDCorrecto && esApellidoCorrecto && esGeneroCorrecto && esNombrePCorrecto){
         let director = listaDirectores.find( director => director.apellidos === inputApellidoD.value);
@@ -47,12 +51,12 @@ function añadirPelicula(){
 }
 
 //VALIDACION DEL TITULO
-function validarTituloPelicula(inputTitulo){
+function validarTituloPelicula(inputTitulo,divErrores){
 	let esCorrecto = false;
 	let tituloTratado = tratarCadenasInput(inputTitulo.value);
 
 	if(tituloTratado === null || tituloTratado.length <= 1){
-		marcarInputComoErroneo(inputTitulo,'El titulo es erroneo');
+		marcarInputComoErroneo(inputTitulo,divErrores,'El titulo es erroneo<br>');
 	}else{
 		esCorrecto = true;
 		marcarInputComoCorrecto(inputTitulo);
@@ -60,12 +64,12 @@ function validarTituloPelicula(inputTitulo){
 	return esCorrecto;
 }
 
-function validarPeliculaSeleccionada(inputPelicula){
+function validarPeliculaSeleccionada(inputPelicula,divErrores){
 	let esCorrecto = false;
 	let peliculaTratada = tratarCadenasInput(inputPelicula.value);
 
 	if(peliculaTratada === null || peliculaTratada.length <= 1){
-		marcarInputComoErroneo(inputPelicula,'Debe seleccionar una pelicula');
+		marcarInputComoErroneo(inputPelicula,divErrores,'Debe seleccionar una pelicula<br>');
 	}else{
 		esCorrecto = true;
 		marcarInputComoCorrecto(inputPelicula);
@@ -74,13 +78,13 @@ function validarPeliculaSeleccionada(inputPelicula){
 }
 
 //VALIDACION DEL NOMBRE DEL DIRECTOR
-function validarNombreD(inputNombreD){
+function validarNombreD(inputNombreD,divErrores){
 	let esCorrecto = false;
 	// debugger;
 	let nombreTratado = tratarCadenasInput(inputNombreD.value);
 	let expresion = /^[A-Z]{2,}$/g
 	if(!expresion.test(nombreTratado)){
-		marcarInputComoErroneo(inputNombreD,'El nombre del director es erroneo');
+		marcarInputComoErroneo(inputNombreD,divErrores,'El nombre del director es erroneo<br>');
 	}else{
 		esCorrecto = true;
 		marcarInputComoCorrecto(inputNombreD);
@@ -89,12 +93,12 @@ function validarNombreD(inputNombreD){
 }
 
 //VALIDACION DEL APELLIDO DEL DIRECTOR
-function validarApellidoD(inputApellidoD){
+function validarApellidoD(inputApellidoD,divErrores){
 	let esCorrecto = false;
 	let apellidoTratado = tratarCadenasInput(inputApellidoD.value);
 
 	if(apellidoTratado === null || apellidoTratado.length < 1){
-		marcarInputComoErroneo(inputApellidoD,'El apellido del director es erroneo');
+		marcarInputComoErroneo(inputApellidoD,divErrores,'El apellido del director es erroneo<br>');
 	}else{
 		esCorrecto = true;
 		marcarInputComoCorrecto(inputApellidoD);
@@ -103,12 +107,12 @@ function validarApellidoD(inputApellidoD){
 }
 
 //VALIDACION DEL GENERO
-function validarGenero(inputGenero){
+function validarGenero(inputGenero,divErrores){
 	let esCorrecto = false;
 	let generoTratado = tratarCadenasInput(inputGenero.value);
 
 	if(generoTratado === null || generoTratado === ""){
-		marcarInputComoErroneo(inputGenero,'El genero es erroneo');
+		marcarInputComoErroneo(inputGenero,divErrores,'El genero es erroneo<br>');
 	}else{
 		esCorrecto = true;
 		marcarInputComoCorrecto(inputGenero);
@@ -117,12 +121,12 @@ function validarGenero(inputGenero){
 }
 
 //VALIDACION DEL NOMBRE DE LA PRODUCTORA
-function validarNombreP(inputNombreP){
+function validarNombreP(inputNombreP,divErrores){
 	let esCorrecto = false;
 	let nombreTratado = tratarCadenasInput(inputNombreP.value);
 
 	if(nombreTratado === null || nombreTratado.length < 2){
-		marcarInputComoErroneo(inputNombreP,'El nombre de la productora es erroneo');
+		marcarInputComoErroneo(inputNombreP,divErrores,'El nombre de la productora es erroneo<br>');
 	}else{
 		esCorrecto = true;
 		marcarInputComoCorrecto(inputNombreP);
@@ -130,35 +134,26 @@ function validarNombreP(inputNombreP){
 	return esCorrecto;
 }
 //METER LOS ERRORES EN UN DIV Y HACER A LA HORA DE VALIDAR UN INNERHTML = ""
-function vaciarInputPadre(input){
-    let padre = input.parentNode;
-    let errores = padre.getElementsByClassName("error");
-	for (let i = 0; i < errores.length; i++) {
-		const element = array[i];
-		
-	}
-	
-	for (let error of errores) {
-        padre.removeChild(error);
-    }
+function vaciarDivErrores(divErrores){
+    divErrores.innerHTML = "";
 }
 
 //FUNCION PARA MARCAR INPUTS CORRECTOS
-function marcarInputComoCorrecto(input){
+function marcarInputComoCorrecto(input,divErrores){
 	input.className  = 'correcto';
-	let padre = input.parentNode;
-	debugger;
+	// let padre = input.parentNode;
+	// debugger;
 	let spanError = document.querySelectorAll(`#${input.id} + span`);
 	if(spanError.length > 0){
 		for (let i = 0; i < spanError.length; i++) {
-			padre.removeChild(spanError[i]);
+			divErrores.removeChild(spanError[i]);
 			
 		}
 	}
 }
 
 //FUNCION PARA MARCAR INPUTS INCORRECTOS
-function marcarInputComoErroneo(input,textoError){
+function marcarInputComoErroneo(input,divErrores,textoError){
 	input.className  = 'incorrecto';
 	let padre = input.parentNode;
 	let spanError = document.querySelectorAll(`#${input.id} + span`);
@@ -166,29 +161,35 @@ function marcarInputComoErroneo(input,textoError){
 		let spanNuevo = document.createElement("span");
 		spanNuevo.className = 'error';
 		spanNuevo.innerHTML = textoError;
-		padre.appendChild(spanNuevo.cloneNode(true));
+		divErrores.appendChild(spanNuevo.cloneNode(true));
 	}
 }
 
 function cambiarDirectorActual(){
-	let inputPelicula = document.getElementById("pelicula");
+	let peliculaSeleccionada = null;
+	let inputPelicula = document.getElementById("peliculaD");
 	let inputNuevoNombre = document.getElementById("nombreD");
 	let inputNuevoApellido = document.getElementById("apellidoD");
 
-	let esNuevoNombreCorrecto = validarNombreD(inputNuevoNombre);
-	let esNuevoApellidoCorrecto = validarApellidoD(inputNuevoApellido);
-	let esPeliculaCorrecto = validarPeliculaSeleccionada(inputPelicula);
-	// let esTituloCorrecto = validarTituloPelicula(inputPelicula.value);
+	vaciarDivErrores(divErroresCambiarDirector);
 
+	let esNuevoNombreCorrecto = validarNombreD(inputNuevoNombre,divErroresCambiarDirector);
+	let esNuevoApellidoCorrecto = validarApellidoD(inputNuevoApellido,divErroresCambiarDirector);
+	let esPeliculaCorrecto = validarPeliculaSeleccionada(inputPelicula,divErroresCambiarDirector);
+	// let esTituloCorrecto = validarTituloPelicula(inputPelicula.value);
+	console.log(inputPelicula.value);
 	if(esNuevoNombreCorrecto && esNuevoApellidoCorrecto && esPeliculaCorrecto){
 		let nuevoDirector = new Director(inputNuevoNombre.value,inputNuevoApellido.value);
 		listaDirectores.push(nuevoDirector);
 		let pelicula = peliculas.find(pelicula => pelicula.titulo === inputPelicula.value);
 
 		if(pelicula !== undefined){
-			pelicula.Director = nuevoDirector;
+			pelicula.director = nuevoDirector;
+			nuevoDirector.incluirPeliculas(pelicula);
 		}
-		let peliculaSeleccionada = document.querySelector(`div[data-identificador = ${inputPelicula.value}]`);
+
+		let divPeliculas = document.getElementById("peliculasMostrar")
+		peliculaSeleccionada = divPeliculas.querySelector(`div[data-identificador = ${inputPelicula.value}]`);
 		let directorActual = peliculaSeleccionada.querySelector("p[data-identificador = director]");
 		directorActual.innerHTML = `${nuevoDirector}`;
 	}
@@ -199,8 +200,10 @@ function cambiarProductoraActual(){
 	let inputNuevoNombre = document.getElementById("nombreProductora");
 	let inputPelicula = document.getElementById("peliculaP");
 
-	let esNuevoNombreCorrecto = validarNombreP(inputNuevoNombre);
-	let esPeliculaCorrecto = validarPeliculaSeleccionada(inputPelicula);
+	vaciarDivErrores(divErroresCambiarProductora);
+
+	let esNuevoNombreCorrecto = validarNombreP(inputNuevoNombre,divErroresCambiarProductora);
+	let esPeliculaCorrecto = validarPeliculaSeleccionada(inputPelicula,divErroresCambiarProductora);
 	// let esTituloCorrecto = validarTituloPelicula(inputPelicula.value);
 
 	if(esNuevoNombreCorrecto && esPeliculaCorrecto){
@@ -209,7 +212,7 @@ function cambiarProductoraActual(){
 		let pelicula = peliculas.find(pelicula => pelicula.titulo === inputPelicula.value);
 
 		if(pelicula !== undefined){
-			pelicula.Productora = nuevaProductora;
+			pelicula.productora = nuevaProductora;
 		}
 		let peliculaSeleccionada = document.querySelector(`div[data-identificador = ${inputPelicula.value}]`);
 		let productoraActual = peliculaSeleccionada.querySelector("p[data-identificador = productora]");
@@ -219,15 +222,15 @@ function cambiarProductoraActual(){
 }
 
 function crearOpciones(){
-	let inputPelicula = document.getElementById("pelicula");
+	let inputPeliculaD = document.getElementById("peliculaD");
 	let inputPeliculaP = document.getElementById("peliculaP");
 	// debugger;
 	for (let pelicula of peliculas) {
 		let opcion = document.createElement("option");
 		opcion.className = "opcion";
-		opcion.setAttribute("value", pelicula.titulo);
-		opcion.innerHTML = pelicula.titulo;
-		inputPelicula.appendChild(opcion);
+		opcion.setAttribute("value", quitarEspacios(pelicula.titulo));
+		opcion.innerHTML = `\n ${pelicula.titulo} \n \n `;
+		inputPeliculaD.appendChild(opcion);
 		inputPeliculaP.appendChild(opcion.cloneNode(true));
 	}
 }

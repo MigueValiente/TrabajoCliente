@@ -8,8 +8,8 @@ FUNCIONES
   * Página de Edición:
     ✅ Función que cree o edite el elemento principal de la página.
     ✅ Función que valide todos los campos de creación del elemento principal de la página. El alumno debe detallar los requisitos que deben cumplirse para que sea válido.
-    ❎ Función que debe añadir o cambiar el usuario que esta asociado al elemento. SI el elemento no tiene usuarios asociados, se crea. Si el elemento tiene un usuario asociado, se cambia. (CAMBIAR DIRECTOR)
-    ❎ Una función definida por el alumno y que encaje en la funcionalidad de la página.
+    ✅ Función que debe añadir o cambiar el usuario que esta asociado al elemento. SI el elemento no tiene usuarios asociados, se crea. Si el elemento tiene un usuario asociado, se cambia. (CAMBIAR DIRECTOR)
+    ✅ Una función definida por el alumno y que encaje en la funcionalidad de la página.
   * Página de Gestión:
     ❎ Función que obtenga 10 elementos que cumplan varios requisitos a la vez.
     ❎ Función que deba obtener el elemento mejor valorado y además que cumpla varios requisitos a la vez. 

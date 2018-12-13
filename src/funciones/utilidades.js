@@ -24,3 +24,13 @@ function incluirPeliculaHTML(pelicula){
     let divPeliculas  = document.getElementById("peliculasMostrar");
     pelicula.mostrarEnHTML(divPeliculas);
 }
+
+function quitarEspacios(cadena){
+    let arrayPalabras = cadena.split(" ");
+    let nuevaCadena = "";
+
+    for (let i = 0; i < arrayPalabras.length; i++) {
+        nuevaCadena += arrayPalabras[i];
+    }
+    return nuevaCadena;
+}
