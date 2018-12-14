@@ -108,7 +108,7 @@ class Cliente extends Persona{
 	}
 
 	incluirVoto(voto){
-		votos.push(voto);
+		this._votos.push(voto);
 	}
 }
 /*************************************************************************************************************/
@@ -247,8 +247,8 @@ class Pelicula{
 		this.genero = genero;
 		this.productora = productora;
 		this.votos = [];
-		// this.fechaLanzamiento = fechaLanzamiento;
-		// this.precio = precio;
+		this.likes = 0;
+		this.dislikes = 0;
 	}
 
 	get titulo(){
@@ -275,14 +275,6 @@ class Pelicula{
 		this._director=director;
 	}
 
-	// get fechaLanzamiento(){
-	// 	return `${this._fechaLanzamiento}`;
-	// }
-
-	// set fechaLanzamiento(fechaLanzamiento){
-	// 	this._fechaLanzamiento=fechaLanzamiento;
-	// }
-
 	get genero(){
 		return this._genero;
 	}
@@ -298,22 +290,6 @@ class Pelicula{
 	set votos(votos){
 		this._votos=votos;
 	}
-
-	// get id(){
-	// 	return this._id;
-	// }
-
-	// set id(id){
-	// 	this._id=id;
-	// }
-
-	// get precio(){
-	// 	return `${this._precio}`;
-	// }
-
-	// set precio(precio){
-	// 	this._precio=precio;
-	// }
 
 	mostrarEnHTML(nodoHTML){
 		let bloque = document.createElement("div");
@@ -332,10 +308,22 @@ class Pelicula{
 		let productora = document.createElement("p");
 		productora.innerHTML = `${this.productora}`;
 		productora.setAttribute("data-identificador","productora");
+		let contadorLikes = document.createElement("i");
+		contadorLikes.setAttribute("data-identificador","contadorLikes");
+		contadorLikes.classList.add("far");
+		contadorLikes.classList.add("fa-thumbs-up");
+		contadorLikes.innerHTML = `${this.likes}`;
+		let contadorDislikes = document.createElement("i");
+		contadorDislikes.setAttribute("data-identificador","contadorDislikes");
+		contadorDislikes.classList.add("far");
+		contadorDislikes.classList.add("fa-thumbs-down");
+		contadorDislikes.innerHTML = `${this.dislikes}`;
 		bloque.append(titulo);
 		bloque.append(genero);
 		bloque.append(director);
 		bloque.append(productora);
+		bloque.append(contadorLikes);
+		bloque.append(contadorDislikes);
 		nodoHTML.appendChild(bloque);
 	}
 
@@ -367,7 +355,20 @@ class Pelicula{
 	}
 
 	incluirVoto(voto){
-		votos.push(voto);
+		this._votos.push(voto);
+		this.contarVotos();
+	}
+
+	contarVotos(){
+		this.likes = 0;
+		this.dislikes = 0;
+		for (let i = 0; i < this.votos.length; i++) {
+			if(this.votos[i].puntuacion === "like"){
+				this.likes++;
+			}else{
+				this.dislikes++;
+			}
+		}
 	}
 }
 /*************************************************************************************************************/

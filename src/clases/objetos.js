@@ -8,14 +8,16 @@ let directorFavreau = new Director("John","Favreau");
 let directorDerrickson = new Director("Scott","Derrickson");
 let directorWan = new Director("James","Wan");
 let directorJackson = new Director("Peter","Jackson");
+let directorSpielberg = new Director("Steven","Spielberg");
 
-let listaDirectores = [directorWhedon,directorFavreau,directorDerrickson,directorWan,directorJackson];
+let listaDirectores = [directorWhedon,directorFavreau,directorDerrickson,directorWan,directorJackson,directorSpielberg];
 let listaClientes = [clientePepe,clienteJorge];
 
 //Declarando Productoras
 let marvelStudio = new Productora("Marvel Studios");
 let newLineCinema = new Productora("New Line Cinema");
 let wingNutFilms = new Productora("WingNut Films");
+let universalStudios = new Productora("Universal Studios");
 
 //Declarando peliculas
 let IronMan = new Pelicula("Iron-Man",directorFavreau/*,"30/4/2008"*/,"Superheroes",marvelStudio/*12.95*/);
@@ -25,6 +27,7 @@ let Conjuring = new Pelicula("The Conjuring",directorWan,"Terror",newLineCinema)
 let SeñorAnillos1 = new Pelicula("La Comunidad del Anillo",directorJackson,"Fantasia",wingNutFilms);
 let SeñorAnillos2 = new Pelicula("La Dos Torres",directorJackson,"Fantasia",wingNutFilms);
 let SeñorAnillos3 = new Pelicula("El Retorno del Rey",directorJackson,"Fantasia",wingNutFilms);
+let tiburon1 = new Pelicula("Tiburón",directorSpielberg,"Terror",universalStudios);
 
 //Añadiendo peliculas al array de las Productoras
 marvelStudio.incluirPeliculas(IronMan);
@@ -37,9 +40,11 @@ wingNutFilms.incluirPeliculas(SeñorAnillos1);
 wingNutFilms.incluirPeliculas(SeñorAnillos2);
 wingNutFilms.incluirPeliculas(SeñorAnillos3);
 
+universalStudios.incluirPeliculas(tiburon1);
+
 //Array de Productoras
 
-let listaProductoras = [marvelStudio,newLineCinema,wingNutFilms];
+let listaProductoras = [marvelStudio,newLineCinema,wingNutFilms,universalStudios];
 
 //Array de peliculas
 let peliculas = [];
@@ -51,6 +56,7 @@ peliculas.push(Conjuring);
 peliculas.push(SeñorAnillos1);
 peliculas.push(SeñorAnillos2);
 peliculas.push(SeñorAnillos3);
+peliculas.push(tiburon1);
 
 //Declarar videoclub
 let videoclub = new Videoclub("PAQUITO","Calle de la Piruleta, Nº7");

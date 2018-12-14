@@ -6,7 +6,7 @@
 
 .pelicula{
     width:200px;
-    height:200px;
+    height:250px;
     border:1px solid black;
 }
 
@@ -41,20 +41,24 @@
 }
 
 .changeForm{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 75%;
-    height: 100%;
-    margin-bottom: 10px;
+    
     
 }
+
 
 main[id = "edicionForms"]{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+}
+
+main[id = "usuarioForms"]{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-right: 5px;
 }
 
 #crearPelicula{
@@ -81,4 +85,8 @@ main[id = "edicionForms"]{
 
 #cambiarDirectorForm{
     width: 100%;
+}
+
+textarea[id="inputComentario"]{
+    resize: none;
 }

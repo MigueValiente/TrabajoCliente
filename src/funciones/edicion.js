@@ -150,7 +150,7 @@ function cambiarDirectorActual(){
 	if(esNuevoNombreCorrecto && esNuevoApellidoCorrecto && esPeliculaCorrecto){
 		let nuevoDirector = new Director(inputNuevoNombre.value,inputNuevoApellido.value);
 		listaDirectores.push(nuevoDirector);
-		let pelicula = peliculas.find(pelicula => pelicula.titulo === inputPelicula.value);
+		let pelicula = peliculas.find(pelicula => quitarEspacios(pelicula.titulo) === inputPelicula.value);
 
 		if(pelicula !== undefined){
 			pelicula.director = nuevoDirector;
@@ -177,7 +177,7 @@ function cambiarProductoraActual(){
 	if(esNuevoNombreCorrecto && esPeliculaCorrecto){
 		let nuevaProductora = new Productora(inputNuevoNombre.value);
 		listaProductoras.push(nuevaProductora);
-		let pelicula = peliculas.find(pelicula => pelicula.titulo === inputPelicula.value);
+		let pelicula = peliculas.find(pelicula => quitarEspacios(pelicula.titulo) === inputPelicula.value);
 
 		if(pelicula !== undefined){
 			pelicula.productora = nuevaProductora;

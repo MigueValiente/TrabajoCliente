@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/estilo.css">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 </head>
 <body>
     <header>
@@ -22,7 +22,7 @@
         </nav>
     </header>
     <h1>Pagina de Usuario</h1>
-    <main>
+    <main id="usuarioForms">
         <section class="form">
             <form action="" id="formularioRealizarComentario">
                 <fieldset>
@@ -53,6 +53,22 @@
                     </div>
                 </fieldset>
             </form>    
+        </section>
+
+        <section class="form">
+            <fieldset>
+                <legend>Funcion Filtrar Peliculas Votadas por un Usuario</legend>
+                <div class="pelisVotadas">
+                    <label for="nombreUsuarioP">Nombre de Usuario</label>
+                    <input type="search" name="nombreUsuarioP" id="nombreUsuarioP" class="inputForm" placeholder="Nombre de Usuario">
+                    <button type="button" class="botonPelisVotadas" id="botonPelisVotadas">BUSCAR</button>
+                </div>
+
+                <div class="errores" id="erroresPelisVotadas">
+
+
+                </div>
+            </fieldset>
         </section>
 
         <section>

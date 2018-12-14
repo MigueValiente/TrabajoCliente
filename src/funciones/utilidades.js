@@ -166,3 +166,13 @@ function vaciarDivErrores(divErrores){
     divErrores.innerHTML = "";
 }
 
+function focus(event){
+    let input = event.target;
+    input.style.backgroundColor = "rgba(15, 191, 219, 0.2)";
+}
+
+function blur(event){
+    let input = event.target;
+    input.style.backgroundColor = "";
+}
+

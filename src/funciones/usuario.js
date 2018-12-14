@@ -14,13 +14,14 @@ function realizarComentario(){
 	marcarInputComoCorrecto(inputComentario);
 
 	if(esUsuarioCorrecto && esPeliculaCorrecta && esVotoCorrecto){
-		let usuario = listaClientes.find(usuario => usuario.nombre === inputNombreUsuario.value);
-		let pelicula = peliculas.find(pelicula => pelicula.titulo === inputPeliculaC.value);
+		let usuario = listaClientes.find(cliente => cliente.contieneNombre(inputNombreUsuario.value));
+		let pelicula = peliculas.find(pelicula => quitarEspacios(pelicula.titulo) === inputPeliculaC.value);
 		if(usuario !== undefined && pelicula !== undefined){
-			let nuevoVoto = new Votos(inputNombreUsuario.value,inputPeliculaC.value,inputVoto.value,inputComentario.value);
+			let nuevoVoto = new Votos(inputNombreUsuario.value,inputPeliculaC.value,inputVoto,inputComentario.value);
 			usuario.incluirVoto(nuevoVoto);
 			pelicula.incluirVoto(nuevoVoto);
 		}
+		mostrarPeliculasHTML(peliculas);
 		console.log("Comentario realizado con exito");
 	}
 }
@@ -62,23 +63,39 @@ function obtenerRadio(){
 	return botonSeleccionado;
 }
 
-function focus(event){
-    let input = event.target;
-    input.style.backgroundColor = "rgba(15, 191, 219, 0.2)";
+function peliculasVotadas(){
+	let nombreUsuario = document.getElementById("nombreUsuarioP");
+	let nombre = nombreUsuario.value.trim().toUpperCase();
+	let votosPeliculas = votosUsuario(nombre);
+	let peliculasParaMostrar = [];
+	let elementosBuscados = [];
+
+	votosPeliculas.forEach(votoPelicula => {
+		if(!elementosBuscados.includes(votoPelicula.pelicula)){
+			elementosBuscados.push(votoPelicula.pelicula);
+			let peliculaAgregar = peliculas.find(pelicula => quitarEspacios(pelicula.titulo) === votoPelicula.pelicula );
+			if(peliculaAgregar !== null){
+				peliculasParaMostrar.push(peliculaAgregar);
+			}
+		}
+	} );
+	mostrarPeliculasHTML(peliculasParaMostrar);
 }
 
-function blur(event){
-    let input = event.target;
-    input.style.backgroundColor = "";
+function votosUsuario(nombre){
+    let usuario = listaClientes.find( cliente => cliente.contieneNombre(nombre));
+    return usuario.votos;
 }
 
 
 //Obtencion de input de tipo text
 let botonComentario = document.getElementById("realizarComentario");
 let inputsText = document.getElementsByClassName("inputForm");
+let botonPeliculasVotadas = document.getElementById("botonPelisVotadas");
 
 
 botonComentario.addEventListener("click",realizarComentario);
+botonPeliculasVotadas.addEventListener("click",peliculasVotadas);
 for (let i = 0; i < inputsText.length; i++) {
     inputsText[i].addEventListener("focus",focus);
     inputsText[i].addEventListener("blur",blur);
