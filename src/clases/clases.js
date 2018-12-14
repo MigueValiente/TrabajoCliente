@@ -86,6 +86,14 @@ class Cliente extends Persona{
 		this._peliculasFav=peliculas;
 	}
 
+	get votos(){
+		return this._votos;
+	}
+
+	set votos(votos){
+		this._votos=votos;
+	}
+
 	incluirPeliculasFav(pelicula){
 		this._peliculasFav.push(pelicula);
 	}
@@ -97,6 +105,10 @@ class Cliente extends Persona{
 			contiene = this.nombre.toUpperCase().includes(nombreTratado);
 		}
 		return contiene;
+	}
+
+	incluirVoto(voto){
+		votos.push(voto);
 	}
 }
 /*************************************************************************************************************/
@@ -279,6 +291,14 @@ class Pelicula{
 		this._genero=genero;
 	}
 
+	get votos(){
+		return this._votos;
+	}
+
+	set votos(votos){
+		this._votos=votos;
+	}
+
 	// get id(){
 	// 	return this._id;
 	// }
@@ -344,6 +364,10 @@ class Pelicula{
 			contiene = this.genero.toLocaleLowerCase().includes(generoTratado.toLocaleLowerCase());
 		}
 		return contiene;
+	}
+
+	incluirVoto(voto){
+		votos.push(voto);
 	}
 }
 /*************************************************************************************************************/

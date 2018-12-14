@@ -50,120 +50,91 @@ function añadirPelicula(){
     
 }
 
-//VALIDACION DEL TITULO
-function validarTituloPelicula(inputTitulo,divErrores){
-	let esCorrecto = false;
-	let tituloTratado = tratarCadenasInput(inputTitulo.value);
+// //VALIDACION DEL TITULO
+// function validarTituloPelicula(inputTitulo,divErrores){
+// 	let esCorrecto = false;
+// 	let tituloTratado = tratarCadenasInput(inputTitulo.value);
 
-	if(tituloTratado === null || tituloTratado.length <= 1){
-		marcarInputComoErroneo(inputTitulo,divErrores,'El titulo es erroneo<br>');
-	}else{
-		esCorrecto = true;
-		marcarInputComoCorrecto(inputTitulo);
-	}
-	return esCorrecto;
-}
+// 	if(tituloTratado === null || tituloTratado.length <= 1){
+// 		marcarInputComoErroneo(inputTitulo,divErrores,'El titulo es erroneo<br>');
+// 	}else{
+// 		esCorrecto = true;
+// 		marcarInputComoCorrecto(inputTitulo);
+// 	}
+// 	return esCorrecto;
+// }
 
-function validarPeliculaSeleccionada(inputPelicula,divErrores){
-	let esCorrecto = false;
-	let peliculaTratada = tratarCadenasInput(inputPelicula.value);
+// function validarPeliculaSeleccionada(inputPelicula,divErrores){
+// 	let esCorrecto = false;
+// 	let peliculaTratada = tratarCadenasInput(inputPelicula.value);
 
-	if(peliculaTratada === null || peliculaTratada.length <= 1){
-		marcarInputComoErroneo(inputPelicula,divErrores,'Debe seleccionar una pelicula<br>');
-	}else{
-		esCorrecto = true;
-		marcarInputComoCorrecto(inputPelicula);
-	}
-	return esCorrecto;
-}
+// 	if(peliculaTratada === null || peliculaTratada.length <= 1){
+// 		marcarInputComoErroneo(inputPelicula,divErrores,'Debe seleccionar una pelicula<br>');
+// 	}else{
+// 		esCorrecto = true;
+// 		marcarInputComoCorrecto(inputPelicula);
+// 	}
+// 	return esCorrecto;
+// }
 
-//VALIDACION DEL NOMBRE DEL DIRECTOR
-function validarNombreD(inputNombreD,divErrores){
-	let esCorrecto = false;
-	// debugger;
-	let nombreTratado = tratarCadenasInput(inputNombreD.value);
-	let expresion = /^[A-Z]{2,}$/g
-	if(!expresion.test(nombreTratado)){
-		marcarInputComoErroneo(inputNombreD,divErrores,'El nombre del director es erroneo<br>');
-	}else{
-		esCorrecto = true;
-		marcarInputComoCorrecto(inputNombreD);
-	}
-	return esCorrecto;
-}
+// //VALIDACION DEL NOMBRE DEL DIRECTOR
+// function validarNombreD(inputNombreD,divErrores){
+// 	let esCorrecto = false;
+// 	// debugger;
+// 	let nombreTratado = tratarCadenasInput(inputNombreD.value);
+// 	let expresion = /^[A-Z]{2,}$/g
+// 	if(!expresion.test(nombreTratado)){
+// 		marcarInputComoErroneo(inputNombreD,divErrores,'El nombre del director es erroneo<br>');
+// 	}else{
+// 		esCorrecto = true;
+// 		marcarInputComoCorrecto(inputNombreD);
+// 	}
+// 	return esCorrecto;
+// }
 
-//VALIDACION DEL APELLIDO DEL DIRECTOR
-function validarApellidoD(inputApellidoD,divErrores){
-	let esCorrecto = false;
-	let apellidoTratado = tratarCadenasInput(inputApellidoD.value);
+// //VALIDACION DEL APELLIDO DEL DIRECTOR
+// function validarApellidoD(inputApellidoD,divErrores){
+// 	let esCorrecto = false;
+// 	let apellidoTratado = tratarCadenasInput(inputApellidoD.value);
 
-	if(apellidoTratado === null || apellidoTratado.length < 1){
-		marcarInputComoErroneo(inputApellidoD,divErrores,'El apellido del director es erroneo<br>');
-	}else{
-		esCorrecto = true;
-		marcarInputComoCorrecto(inputApellidoD);
-	}
-	return esCorrecto;
-}
+// 	if(apellidoTratado === null || apellidoTratado.length < 1){
+// 		marcarInputComoErroneo(inputApellidoD,divErrores,'El apellido del director es erroneo<br>');
+// 	}else{
+// 		esCorrecto = true;
+// 		marcarInputComoCorrecto(inputApellidoD);
+// 	}
+// 	return esCorrecto;
+// }
 
-//VALIDACION DEL GENERO
-function validarGenero(inputGenero,divErrores){
-	let esCorrecto = false;
-	let generoTratado = tratarCadenasInput(inputGenero.value);
+// //VALIDACION DEL GENERO
+// function validarGenero(inputGenero,divErrores){
+// 	let esCorrecto = false;
+// 	let generoTratado = tratarCadenasInput(inputGenero.value);
 
-	if(generoTratado === null || generoTratado === ""){
-		marcarInputComoErroneo(inputGenero,divErrores,'El genero es erroneo<br>');
-	}else{
-		esCorrecto = true;
-		marcarInputComoCorrecto(inputGenero);
-	}
-	return esCorrecto;
-}
+// 	if(generoTratado === null || generoTratado === ""){
+// 		marcarInputComoErroneo(inputGenero,divErrores,'El genero es erroneo<br>');
+// 	}else{
+// 		esCorrecto = true;
+// 		marcarInputComoCorrecto(inputGenero);
+// 	}
+// 	return esCorrecto;
+// }
 
-//VALIDACION DEL NOMBRE DE LA PRODUCTORA
-function validarNombreP(inputNombreP,divErrores){
-	let esCorrecto = false;
-	let nombreTratado = tratarCadenasInput(inputNombreP.value);
+// //VALIDACION DEL NOMBRE DE LA PRODUCTORA
+// function validarNombreP(inputNombreP,divErrores){
+// 	let esCorrecto = false;
+// 	let nombreTratado = tratarCadenasInput(inputNombreP.value);
 
-	if(nombreTratado === null || nombreTratado.length < 2){
-		marcarInputComoErroneo(inputNombreP,divErrores,'El nombre de la productora es erroneo<br>');
-	}else{
-		esCorrecto = true;
-		marcarInputComoCorrecto(inputNombreP);
-	}
-	return esCorrecto;
-}
-//METER LOS ERRORES EN UN DIV Y HACER A LA HORA DE VALIDAR UN INNERHTML = ""
-function vaciarDivErrores(divErrores){
-    divErrores.innerHTML = "";
-}
+// 	if(nombreTratado === null || nombreTratado.length < 2){
+// 		marcarInputComoErroneo(inputNombreP,divErrores,'El nombre de la productora es erroneo<br>');
+// 	}else{
+// 		esCorrecto = true;
+// 		marcarInputComoCorrecto(inputNombreP);
+// 	}
+// 	return esCorrecto;
+// }
 
-//FUNCION PARA MARCAR INPUTS CORRECTOS
-function marcarInputComoCorrecto(input,divErrores){
-	input.className  = 'correcto';
-	// let padre = input.parentNode;
-	// debugger;
-	let spanError = document.querySelectorAll(`#${input.id} + span`);
-	if(spanError.length > 0){
-		for (let i = 0; i < spanError.length; i++) {
-			divErrores.removeChild(spanError[i]);
-			
-		}
-	}
-}
 
-//FUNCION PARA MARCAR INPUTS INCORRECTOS
-function marcarInputComoErroneo(input,divErrores,textoError){
-	input.className  = 'incorrecto';
-	let padre = input.parentNode;
-	let spanError = document.querySelectorAll(`#${input.id} + span`);
-	if(spanError.length === 0){
-		let spanNuevo = document.createElement("span");
-		spanNuevo.className = 'error';
-		spanNuevo.innerHTML = textoError;
-		divErrores.appendChild(spanNuevo.cloneNode(true));
-	}
-}
 
 function cambiarDirectorActual(){
 	let peliculaSeleccionada = null;
@@ -176,8 +147,6 @@ function cambiarDirectorActual(){
 	let esNuevoNombreCorrecto = validarNombreD(inputNuevoNombre,divErroresCambiarDirector);
 	let esNuevoApellidoCorrecto = validarApellidoD(inputNuevoApellido,divErroresCambiarDirector);
 	let esPeliculaCorrecto = validarPeliculaSeleccionada(inputPelicula,divErroresCambiarDirector);
-	// let esTituloCorrecto = validarTituloPelicula(inputPelicula.value);
-	console.log(inputPelicula.value);
 	if(esNuevoNombreCorrecto && esNuevoApellidoCorrecto && esPeliculaCorrecto){
 		let nuevoDirector = new Director(inputNuevoNombre.value,inputNuevoApellido.value);
 		listaDirectores.push(nuevoDirector);
@@ -204,7 +173,6 @@ function cambiarProductoraActual(){
 
 	let esNuevoNombreCorrecto = validarNombreP(inputNuevoNombre,divErroresCambiarProductora);
 	let esPeliculaCorrecto = validarPeliculaSeleccionada(inputPelicula,divErroresCambiarProductora);
-	// let esTituloCorrecto = validarTituloPelicula(inputPelicula.value);
 
 	if(esNuevoNombreCorrecto && esPeliculaCorrecto){
 		let nuevaProductora = new Productora(inputNuevoNombre.value);
@@ -229,7 +197,7 @@ function crearOpciones(){
 		let opcion = document.createElement("option");
 		opcion.className = "opcion";
 		opcion.setAttribute("value", quitarEspacios(pelicula.titulo));
-		opcion.innerHTML = `\n ${pelicula.titulo} \n \n `;
+		opcion.innerHTML = `${pelicula.titulo}`;
 		inputPeliculaD.appendChild(opcion);
 		inputPeliculaP.appendChild(opcion.cloneNode(true));
 	}

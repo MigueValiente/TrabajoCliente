@@ -21,15 +21,52 @@
             </ul>
         </nav>
     </header>
+    <h1>Pagina de Usuario</h1>
     <main>
+        <section class="form">
+            <form action="" id="formularioRealizarComentario">
+                <fieldset>
+                    <legend>Realizar Comentario</legend>
+                    <div class="addComment">
+                        <label for="nombreUsuario">Nombre de Usuario</label>
+                        <input type="text" name="nombreUsuario" id="nombreUsuario" class="inputForm" placeholder="Nombre de Usuario"><br>
+
+                        <label for="peliculaC">Pelicula</label>
+                        <select id="peliculaC" name="peliculaC">
+                                <option value="">-Seleccionar-</option>
+                                
+                        </select><br>
+                        
+                        Puntuacion
+                        <label><input type="radio" name="voto" id="voto" value="like">Like</label>
+                        <label><input type="radio" name="voto" id="voto" value="dislike">Dislike<br></label>
+
+                        <label for="inputComentario">Comentario</label><br>
+                        <textarea rows="4" cols="50" name="inputComentario" id="inputComentario" class="inputForm" placeholder="Escriba un comentario"></textarea>
+
+                        <button type="button" class="realizarComentario" id="realizarComentario">Realizar Comentario</button>
+
+                        <div class="errores" id="erroresComentario">
+
+
+                        </div>
+                    </div>
+                </fieldset>
+            </form>    
+        </section>
+
         <section>
-            <h1>Usuario</h1>
+            <h1>Peliculas</h1>
+            <div id="peliculasMostrar">
+                    
+            </div>
         </section>
     </main>
     
     
     <script src="../funciones/utilidades.js" cache="false" defer></script>
-    <script src="../../out/clases.min.js" cache="false" defer></script>
+    <script src="../funciones/usuario.js" cache="false" defer></script>
     <script src="../clases/clases.js" cache="false" defer></script>
+    <script src="../clases/objetos.js" cache="false" defer></script>
 </body>
 </html>
