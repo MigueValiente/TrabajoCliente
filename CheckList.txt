@@ -16,7 +16,7 @@ FUNCIONES
     ❎ Función que ordene los elementos según el campo especificado.
     ❎ Una función definida por el alumno y que encaje en la funcionalidad de la página.
   * Página del Usuario:
-    ❎ Función que permita a un usuario votar y opinar sobre el elemento.
+    ✅ Función que permita a un usuario votar y opinar sobre el elemento.
     ❎ Función que permitar obtener los elementos que ha votado un usuario.
     ❎ Función que obtenga los elementos similares a los elementos favoritos del usuario.
     ❎ Una función definida por el alumno y que encaje en la funcionalidad de la página.

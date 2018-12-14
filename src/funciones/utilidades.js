@@ -82,6 +82,21 @@ function validarApellidoD(inputApellidoD,divErrores){
 	return esCorrecto;
 }
 
+//VALIDACION DEL NOMBRE DEL Usuaurio
+function validarNombreUsuario(inputNombreUsuario,divErrores){
+	let esCorrecto = false;
+	// debugger;
+	let nombreTratado = tratarCadenasInput(inputNombreUsuario.value);
+	let expresion = /^[A-Z]{2,}$/g
+	if(!expresion.test(nombreTratado)){
+		marcarInputComoErroneo(inputNombreUsuario,divErrores,'El nombre del usuario es obligatorio<br>');
+	}else{
+		esCorrecto = true;
+		marcarInputComoCorrecto(inputNombreUsuario);
+	}
+	return esCorrecto;
+}
+
 //VALIDACION DEL GENERO
 function validarGenero(inputGenero,divErrores){
 	let esCorrecto = false;

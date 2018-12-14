@@ -374,11 +374,11 @@ class Pelicula{
 //VOTOS
 class Votos{
 
-	constructor(puntuacion,comentario,cliente,pelicula){
-		this.puntuacion = puntuacion;
-		this.comentario = comentario;
+	constructor(cliente,pelicula,puntuacion,comentario){
 		this.cliente = cliente;
 		this.pelicula = pelicula;
+		this.puntuacion = puntuacion;
+		this.comentario = comentario;
 	}
 
 	get puntuacion(){
