@@ -93,11 +93,14 @@ class Cliente extends Persona{
 	set votos(votos){
 		this._votos=votos;
 	}
-
+	/**
+	 * Funcion que añade una pelicula a peliculasFav
+	 * @param {Pelicula} pelicula 
+	 */
 	incluirPeliculasFav(pelicula){
 		this._peliculasFav.push(pelicula);
 	}
-
+	
 	contieneNombre(nombre){
 		let contiene = false;
 		let nombreTratado = tratarCadenasInput(nombre);
@@ -106,7 +109,10 @@ class Cliente extends Persona{
 		}
 		return contiene;
 	}
-
+	/**
+	 * Funcion que añade un voto a votos
+	 * @param {Voto} voto
+	 */
 	incluirVoto(voto){
 		this._votos.push(voto);
 	}
@@ -143,7 +149,10 @@ class Director extends Persona{
 	set peliculas(peliculas){
 		this._peliculas=peliculas;
 	}
-
+	/**
+	 * Funcion que añade una pelicula a peliculas
+	 * @param {Pelicula} pelicula 
+	 */
 	incluirPeliculas(pelicula){
 		this._peliculas.push(pelicula);
 	}
@@ -188,7 +197,10 @@ class Videoclub{
 	set direccion(direccion){
 		this._direccion=direccion;
 	}
-
+	/**
+	 * Funcion que añade una pelicula a peliculas
+	 * @param {Pelicula} pelicula 
+	 */
 	incluirPeliculas(pelicula){
 		this._peliculas.push(pelicula);
 	}
@@ -218,7 +230,10 @@ class Productora{
 	set peliculas(peliculas){
 		this._peliculas=peliculas;
 	}
-
+	/**
+	 * Funcion que añade una pelicula a peliculas
+	 * @param {Pelicula} pelicula 
+	 */
 	incluirPeliculas(pelicula){
 		this._peliculas.push(pelicula);
 	}
@@ -340,7 +355,7 @@ class Pelicula{
 		let contiene = false;
 		let directorTratado = tratarCadenasInput(director);
 		if(directorTratado != null){
-			contiene = this.director.nombre.toUpperCase().includes(directorTratado);
+			contiene = this.director.apellidos.toUpperCase().includes(directorTratado);
 		}
 		return contiene;
 	}
@@ -353,12 +368,17 @@ class Pelicula{
 		}
 		return contiene;
 	}
-
+	/**
+	 * Funcion que añade un voto a votos
+	 * @param {Voto} voto
+	 */
 	incluirVoto(voto){
 		this._votos.push(voto);
 		this.contarVotos();
 	}
-
+	/**
+	 * Funcion que cuenta los likes y dislikes de una pelicula
+	 */
 	contarVotos(){
 		this.likes = 0;
 		this.dislikes = 0;

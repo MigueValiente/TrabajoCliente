@@ -2,7 +2,9 @@ let divErroresPeliculaNueva = document.getElementById("erroresPeliNueva");
 let divErroresCambiarDirector = document.getElementById("erroresCambiarDirector");
 let divErroresCambiarProductora = document.getElementById("erroresCambiarProductora");
 
-//FUNCION PARA AÑADIR LA PELICULA NUEVA
+/**
+ * Funcion que añade una pelicula
+ */
 function añadirPelicula(){
     let inputTitulo = document.getElementById("titulo");
     let inputNombreD = document.getElementById("nombre");
@@ -50,92 +52,9 @@ function añadirPelicula(){
     
 }
 
-// //VALIDACION DEL TITULO
-// function validarTituloPelicula(inputTitulo,divErrores){
-// 	let esCorrecto = false;
-// 	let tituloTratado = tratarCadenasInput(inputTitulo.value);
-
-// 	if(tituloTratado === null || tituloTratado.length <= 1){
-// 		marcarInputComoErroneo(inputTitulo,divErrores,'El titulo es erroneo<br>');
-// 	}else{
-// 		esCorrecto = true;
-// 		marcarInputComoCorrecto(inputTitulo);
-// 	}
-// 	return esCorrecto;
-// }
-
-// function validarPeliculaSeleccionada(inputPelicula,divErrores){
-// 	let esCorrecto = false;
-// 	let peliculaTratada = tratarCadenasInput(inputPelicula.value);
-
-// 	if(peliculaTratada === null || peliculaTratada.length <= 1){
-// 		marcarInputComoErroneo(inputPelicula,divErrores,'Debe seleccionar una pelicula<br>');
-// 	}else{
-// 		esCorrecto = true;
-// 		marcarInputComoCorrecto(inputPelicula);
-// 	}
-// 	return esCorrecto;
-// }
-
-// //VALIDACION DEL NOMBRE DEL DIRECTOR
-// function validarNombreD(inputNombreD,divErrores){
-// 	let esCorrecto = false;
-// 	// debugger;
-// 	let nombreTratado = tratarCadenasInput(inputNombreD.value);
-// 	let expresion = /^[A-Z]{2,}$/g
-// 	if(!expresion.test(nombreTratado)){
-// 		marcarInputComoErroneo(inputNombreD,divErrores,'El nombre del director es erroneo<br>');
-// 	}else{
-// 		esCorrecto = true;
-// 		marcarInputComoCorrecto(inputNombreD);
-// 	}
-// 	return esCorrecto;
-// }
-
-// //VALIDACION DEL APELLIDO DEL DIRECTOR
-// function validarApellidoD(inputApellidoD,divErrores){
-// 	let esCorrecto = false;
-// 	let apellidoTratado = tratarCadenasInput(inputApellidoD.value);
-
-// 	if(apellidoTratado === null || apellidoTratado.length < 1){
-// 		marcarInputComoErroneo(inputApellidoD,divErrores,'El apellido del director es erroneo<br>');
-// 	}else{
-// 		esCorrecto = true;
-// 		marcarInputComoCorrecto(inputApellidoD);
-// 	}
-// 	return esCorrecto;
-// }
-
-// //VALIDACION DEL GENERO
-// function validarGenero(inputGenero,divErrores){
-// 	let esCorrecto = false;
-// 	let generoTratado = tratarCadenasInput(inputGenero.value);
-
-// 	if(generoTratado === null || generoTratado === ""){
-// 		marcarInputComoErroneo(inputGenero,divErrores,'El genero es erroneo<br>');
-// 	}else{
-// 		esCorrecto = true;
-// 		marcarInputComoCorrecto(inputGenero);
-// 	}
-// 	return esCorrecto;
-// }
-
-// //VALIDACION DEL NOMBRE DE LA PRODUCTORA
-// function validarNombreP(inputNombreP,divErrores){
-// 	let esCorrecto = false;
-// 	let nombreTratado = tratarCadenasInput(inputNombreP.value);
-
-// 	if(nombreTratado === null || nombreTratado.length < 2){
-// 		marcarInputComoErroneo(inputNombreP,divErrores,'El nombre de la productora es erroneo<br>');
-// 	}else{
-// 		esCorrecto = true;
-// 		marcarInputComoCorrecto(inputNombreP);
-// 	}
-// 	return esCorrecto;
-// }
-
-
-
+/**
+ * Funcion que cambia el director de una pelicula
+ */
 function cambiarDirectorActual(){
 	let peliculaSeleccionada = null;
 	let inputPelicula = document.getElementById("peliculaD");
@@ -164,7 +83,9 @@ function cambiarDirectorActual(){
 	}
 	
 }
-
+/**
+ * Funcion que cambia la productora de una pelicula
+ */
 function cambiarProductoraActual(){
 	let inputNuevoNombre = document.getElementById("nombreProductora");
 	let inputPelicula = document.getElementById("peliculaP");
@@ -189,6 +110,9 @@ function cambiarProductoraActual(){
 	
 }
 
+/**
+ * Funcion que crea las opciones de un select segun las peliculas del array de peliculas
+ */
 function crearOpciones(){
 	let inputPeliculaD = document.getElementById("peliculaD");
 	let inputPeliculaP = document.getElementById("peliculaP");
@@ -201,16 +125,6 @@ function crearOpciones(){
 		inputPeliculaD.appendChild(opcion);
 		inputPeliculaP.appendChild(opcion.cloneNode(true));
 	}
-}
-
-function focus(event){
-    let input = event.target;
-    input.style.backgroundColor = "rgba(15, 191, 219, 0.2)";
-}
-
-function blur(event){
-    let input = event.target;
-    input.style.backgroundColor = "";
 }
 
 //CONSIGUIENDO BOTON DEL FORMULARIO

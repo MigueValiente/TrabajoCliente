@@ -70,6 +70,44 @@
                 </div>
             </fieldset>
         </section>
+        
+        <section class="form">
+            <fieldset>
+                <legend>Peliculas Parecidas a las Favoritas de un usuario</legend>
+                <div class="pelisParecidas">
+                    <label for="usuarioPelisParecidas">Nombre de Usuario</label>
+                    <input type="search" name="usuarioPelisParecidas" id="usuarioPelisParecidas" class="inputForm" placeholder="Nombre de Usuario">
+                    <button type="button" class="botonPelisParecidas" id="botonPelisParecidas">BUSCAR</button>
+                </div>
+
+                <div class="errores" id="erroresPelisParecidas">
+
+
+                </div>
+            </fieldset>
+        </section>
+
+        <section class="form">
+                <fieldset>
+                    <legend>Eliminar Pelicula Favorita</legend>
+                    <div class="eliminarPeliFavorita">
+                        <label for="usuarioEliminarPeliFavorita">Nombre de Usuario</label>
+                        <input type="search" name="usuarioEliminarPeliFavorita" id="usuarioEliminarPeliFavorita" class="inputForm" placeholder="Nombre de Usuario">
+                        <button type="button" class="botonListaFavoritas" id="botonListaFavoritas">cargar pelis</button>
+                        <label for="peliculaEF">Pelicula</label>
+                        <select id="peliculaEF" name="peliculaEF">
+                                <option value="">-Seleccionar-</option>
+                                
+                        </select><br>
+                        <button type="button" class="botonEliminarPeliFavorita" id="botonEliminarPeliFavorita">ELIMINAR</button>
+                    </div>
+    
+                    <div class="errores" id="erroresEliminarPeliFavorita">
+    
+    
+                    </div>
+                </fieldset>
+            </section>
 
         <section>
             <h1>Peliculas</h1>

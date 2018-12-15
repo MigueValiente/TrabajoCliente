@@ -41,8 +41,21 @@
 }
 
 .changeForm{
-    
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 75%;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.eliminarPeliFavorita{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 75%;
+    height: 100%;
+    margin-bottom: 10px;
 }
 
 
@@ -61,13 +74,9 @@ main[id = "usuarioForms"]{
     margin-right: 5px;
 }
 
-#crearPelicula{
-    width: 100%;
-}
 
-#cambiarDirector{
-    width: 100%;
-}
+
+
 
 .añadirPelicula{
     width: 50%;
@@ -80,7 +89,11 @@ main[id = "usuarioForms"]{
 }
 
 .form{
-    width: 30%;
+    width: 25%;
+}
+
+#FormularioCambiarDirector{
+    height: 100%;
 }
 
 #cambiarDirectorForm{
@@ -89,4 +102,13 @@ main[id = "usuarioForms"]{
 
 textarea[id="inputComentario"]{
     resize: none;
+}
+
+i{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+button{
+    width: 45%;
 }
