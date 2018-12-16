@@ -41,12 +41,12 @@ function añadirPelicula(){
             director.incluirPeliculas(peli);
             productora.incluirPeliculas(peli);
 		}
-		let inputPelicula = document.getElementById("pelicula");
-		let opcion = document.createElement("option");
-		opcion.className = "opcion";
-		opcion.setAttribute("value", peli.titulo);
-		opcion.innerHTML = peli.titulo;
-		inputPelicula.appendChild(opcion);
+		// let inputPelicula = document.getElementById("pelicula");
+		// let opcion = document.createElement("option");
+		// opcion.className = "opcion";
+		// opcion.setAttribute("value", peli.titulo);
+		// opcion.innerHTML = peli.titulo;
+		// inputPelicula.appendChild(opcion);
 		
     }
     
@@ -68,18 +68,21 @@ function cambiarDirectorActual(){
 	let esPeliculaCorrecto = validarPeliculaSeleccionada(inputPelicula,divErroresCambiarDirector);
 	if(esNuevoNombreCorrecto && esNuevoApellidoCorrecto && esPeliculaCorrecto){
 		let nuevoDirector = new Director(inputNuevoNombre.value,inputNuevoApellido.value);
-		listaDirectores.push(nuevoDirector);
+		if(!listaDirectores.includes(nuevoDirector)){
+			listaDirectores.push(nuevoDirector);
+		}
 		let pelicula = peliculas.find(pelicula => quitarEspacios(pelicula.titulo) === inputPelicula.value);
 
 		if(pelicula !== undefined){
 			pelicula.director = nuevoDirector;
 			nuevoDirector.incluirPeliculas(pelicula);
+			let divPeliculas = document.getElementById("peliculasMostrar")
+			peliculaSeleccionada = divPeliculas.querySelector(`div[data-identificador = ${inputPelicula.value}]`);
+			let directorActual = peliculaSeleccionada.querySelector("p[data-identificador = director]");
+			directorActual.innerHTML = `${nuevoDirector}`;
 		}
 
-		let divPeliculas = document.getElementById("peliculasMostrar")
-		peliculaSeleccionada = divPeliculas.querySelector(`div[data-identificador = ${inputPelicula.value}]`);
-		let directorActual = peliculaSeleccionada.querySelector("p[data-identificador = director]");
-		directorActual.innerHTML = `${nuevoDirector}`;
+		
 	}
 	
 }
@@ -97,15 +100,18 @@ function cambiarProductoraActual(){
 
 	if(esNuevoNombreCorrecto && esPeliculaCorrecto){
 		let nuevaProductora = new Productora(inputNuevoNombre.value);
-		listaProductoras.push(nuevaProductora);
+		if(!listaProductoras.includes(nuevaProductora)){
+			listaProductoras.push(nuevaProductora);
+		}
 		let pelicula = peliculas.find(pelicula => quitarEspacios(pelicula.titulo) === inputPelicula.value);
 
 		if(pelicula !== undefined){
 			pelicula.productora = nuevaProductora;
+			let peliculaSeleccionada = document.querySelector(`div[data-identificador = ${inputPelicula.value}]`);
+			let productoraActual = peliculaSeleccionada.querySelector("p[data-identificador = productora]");
+			productoraActual.innerHTML = `${nuevaProductora}`;
 		}
-		let peliculaSeleccionada = document.querySelector(`div[data-identificador = ${inputPelicula.value}]`);
-		let productoraActual = peliculaSeleccionada.querySelector("p[data-identificador = productora]");
-		productoraActual.innerHTML = `${nuevaProductora}`;
+		
 	}
 	
 }

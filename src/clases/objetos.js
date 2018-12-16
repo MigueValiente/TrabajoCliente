@@ -1,6 +1,8 @@
 //Declarando Clientes
 let clientePepe = new Cliente("Pepe","Espejo Roig","72146712K",954321231,"Calle Don Nadie, Nº213");
 let clienteJorge = new Cliente("Jorge","Baron Abad","72254571F",954367681,"Calle Don Alguien, Nº214");
+let clientePaco = new Cliente("Paco","Pacote Paquitez","72254571F",954657681,"Calle Don Pipon, Nº214");
+
 
 //Declarar Director
 let directorWhedon = new Director("Joss","Whedon");
@@ -14,7 +16,7 @@ let directorKleiser = new Director("Randal","Kleiser");
 let directorStahelski = new Director("Chad","Stahelski");
 
 let listaDirectores = [directorWhedon,directorFavreau,directorDerrickson,directorWan,directorJackson,directorSpielberg,directorMuschietti,directorStahelski];
-let listaClientes = [clientePepe,clienteJorge];
+let listaClientes = [clientePepe,clienteJorge,clientePaco];
 
 //Declarando Productoras
 let marvelStudio = new Productora("Marvel Studios");
@@ -25,6 +27,7 @@ let amblingEntertainment = new Productora("Amblin Entertainment");
 let dcFilms = new Productora("DC Films");
 let rsoRecords = new Productora("RSO Records");
 let mjwFilms = new Productora("MJW Films");
+let paquitoStudios = new Productora("PaquitoStudios");
 
 //Declarando peliculas
 let IronMan = new Pelicula("Iron-Man",directorFavreau/*,"30/4/2008"*/,"Superheroes",marvelStudio/*12.95*/);
@@ -65,7 +68,7 @@ mjwFilms.incluirPeliculas(JohnWick);
 
 //Array de Productoras
 
-let listaProductoras = [marvelStudio,newLineCinema,wingNutFilms,universalStudios,amblingEntertainment,dcFilms,rsoRecords,mjwFilms];
+let listaProductoras = [marvelStudio,newLineCinema,wingNutFilms,universalStudios,amblingEntertainment,dcFilms,rsoRecords,mjwFilms,paquitoStudios];
 
 //Array de peliculas
 let peliculas = [];
@@ -106,6 +109,10 @@ clientePepe.incluirPeliculasFav(IronMan);
 clientePepe.incluirPeliculasFav(Conjuring);
 clienteJorge.incluirPeliculasFav(DoctorStrange);
 clienteJorge.incluirPeliculasFav(Vengadores);
+clienteJorge.incluirPeliculasFav(Tiburon1);
+clienteJorge.incluirPeliculasFav(It);
+clienteJorge.incluirPeliculasFav(Aquaman);
+clienteJorge.incluirPeliculasFav(SeñorAnillos2);
 
 
 //Añadiendo pelis a directores
@@ -117,7 +124,7 @@ directorFavreau.incluirPeliculas(IronMan);
 directorDerrickson.incluirPeliculas(DoctorStrange);
 
 directorWan.incluirPeliculas(Conjuring);
-directorWan.incluirPeliculas(Aquaman)
+directorWan.incluirPeliculas(Aquaman);
 
 directorJackson.incluirPeliculas(SeñorAnillos1);
 directorJackson.incluirPeliculas(SeñorAnillos2);

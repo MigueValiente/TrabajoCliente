@@ -40,7 +40,7 @@ function realizarComentario(){
 function validarVoto(inputVoto,divErrores){
 	let esCorrecto = false;
 	
-	if(inputVoto === null){
+	if(inputVoto === null || inputVoto === ""){
 		marcarInputComoErroneo(inputVoto,divErrores,'El voto es obligatorio<br>');
 	}else{
 		esCorrecto = true;

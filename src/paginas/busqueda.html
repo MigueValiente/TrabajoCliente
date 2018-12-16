@@ -23,56 +23,104 @@
     </header>
     <h1>Pagina de Busqueda</h1>
     <main>
-        <section>
+        <section class="form">
             <form action="" name="buscador">
-                <div class="divInput">
-                    <label for="titulo">Funcion Filtrar Titulo y Director</label>
-                    <input type="search" name="titulo" id="titulo" class="inputForm" placeholder="Titulo de la pelicula">
-                    <input type="search" name="director" id="director" class="inputForm" placeholder="Apellido director">
-                    <button type="button" class="botonBusqueda" id="botonBusqueda">BUSCAR</button>
-                </div>
-                
-                <div class="divInput">
-                    <label for="genero">Funcion Filtrar por Genero</label>
-                    <select id="genero" name="genero">
-                        <option value="">-Seleccionar-</option>
-                        <option value="superheroes">Superheroes</option>
-                        <option value="terror">Terror</option>
-                        <option value="fantasia">Fantasia</option>
-                        <option value="aventura">Aventura</option>
-                        <option value="accion">Accion</option>
-                        <option value="musical">Musical</option>
-                    </select>
-                    <button type="button" class="botonGenero" id="botonGenero">BUSCAR</button>
-                </div>
-                
-                <div class="divInput">
-                    <label for="usuario">Funcion Filtrar Peliculas Favoritas del Usuario</label>
-                    <input type="search" name="usuario" id="usuario" class="inputForm" placeholder="Nombre de Usuario">
-                    <button type="button" class="botonUsuario" id="botonUsuario">BUSCAR</button>
-                </div>
+                <fieldset>
+                    <legend>Funcion Filtrar Titulo y Director</legend>
+                    <div class="filtrar">
+                        <label for="titulo">Titulo</label>
+                        <input type="search" name="titulo" id="titulo" class="inputForm" placeholder="Titulo de la pelicula">
+                        <label for="titulo">Apellido Director</label>
+                        <input type="search" name="director" id="director" class="inputForm" placeholder="Apellido director">
+                        <button type="button" class="botonBusqueda" id="botonBusqueda">BUSCAR</button>
 
-                <div class="divInput">
-                    <label for="productora">Funcion Filtrar Peliculas de una Productora</label>
-                    <select id="productora" name="productora">
-                        <option value="">-Seleccionar-</option>
-                        <option value="Marvel Studios">Marvel Studios</option>
-                        <option value="New Line Cinema">New Line Cinema</option>
-                        <option value="WingNut Films">WingNut Films</option>
-                        <option value="Universal Studios">Universal Studios</option>
-                        <option value="Amblin Entertainment">Amblin Entertainment</option>
-                        <option value="DC Films">DC Films</option>
-                        <option value="RSO Records">RSO Records</option>
-                        <option value="MJW Films">MJW Films</option>
-                        
-                    </select>
-                    <button type="button" class="botonProductora" id="botonProductora">BUSCAR</button>
-                </div>
+                        <div class="errores" id="erroresFiltrarTD">
 
-                <div class="divInput">
-                    <button type="button" class="botonReset" id="botonReset">Resetear Filtros</button>
-                </div>
+
+                        </div>
+                    </div>
+                </fieldset>
             </form>
+        </section>
+
+        <section class="form">
+            <form action="">
+                <fieldset>
+                    <legend>Funcion Filtrar por Genero</legend>  
+                    <div class="filtrar">
+                        <label for="genero">Genero</label>
+                        <select id="genero" name="genero">
+                            <option value="">-Seleccionar-</option>
+                            <option value="superheroes">Superheroes</option>
+                            <option value="terror">Terror</option>
+                            <option value="fantasia">Fantasia</option>
+                            <option value="aventura">Aventura</option>
+                            <option value="accion">Accion</option>
+                            <option value="musical">Musical</option>
+                            <option value="suspense">Suspense</option>
+                        </select>
+                        <button type="button" class="botonGenero" id="botonGenero">BUSCAR</button>
+
+                        <div class="errores" id="erroresFiltrarG">
+
+
+                        </div>
+                    </div>
+            </fieldset> 
+            </form>
+        </section>
+
+        <section class="form">
+            <form action="">  
+                <fieldset> 
+                    <legend>Funcion Filtrar Peliculas Favoritas del Usuario</legend>   
+                    <div class="filtrar">
+                        <label for="usuario">Usuario</label>
+                        <input type="search" name="usuario" id="usuario" class="inputForm" placeholder="Nombre de Usuario">
+                        <button type="button" class="botonUsuario" id="botonUsuario">BUSCAR</button>
+
+                        <div class="errores" id="erroresFiltrarPF">
+
+
+                        </div>
+                    </div>
+                </fieldset> 
+            </form>
+        </section> 
+
+        <section class="form">
+            <form action="">  
+                <fieldset> 
+                    <legend>Funcion Filtrar Peliculas Favoritas del Usuario</legend>
+                    <div class="filtrar">
+                        <label for="productora">Productora</label>
+                        <select id="productora" name="productora">
+                            <option value="">-Seleccionar-</option>
+                            <option value="Marvel Studios">Marvel Studios</option>
+                            <option value="New Line Cinema">New Line Cinema</option>
+                            <option value="WingNut Films">WingNut Films</option>
+                            <option value="Universal Studios">Universal Studios</option>
+                            <option value="Amblin Entertainment">Amblin Entertainment</option>
+                            <option value="DC Films">DC Films</option>
+                            <option value="RSO Records">RSO Records</option>
+                            <option value="MJW Films">MJW Films</option>
+                            
+                        </select>
+                        <button type="button" class="botonProductora" id="botonProductora">BUSCAR</button>
+
+                        <div class="errores" id="erroresFiltrarP">
+
+
+                        </div>
+                    </div>
+                </fieldset> 
+            </form>
+        </section>  
+
+        <section class="form">
+            <div class="botonReset">
+                <button type="button" class="botonReset" id="botonReset">Resetear Filtros</button>
+            </div>
         </section>
         <section>
             <h1>PELICULAS</h1>

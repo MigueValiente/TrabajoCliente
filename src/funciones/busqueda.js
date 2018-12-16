@@ -1,3 +1,8 @@
+let erroresFiltrarTD = document.getElementById("erroresFiltrarTD");
+let erroresFiltrarG = document.getElementById("erroresFiltrarG");
+let erroresFiltrarPF = document.getElementById("erroresFiltrarPF");
+let erroresFiltrarP = document.getElementById("erroresFiltrarP");
+
 /**
  * Funcion que filtra las peliculas por el titulo de esta y el apellido de su director
  */
@@ -7,7 +12,13 @@ function filtrarTituloDirector(){
     let titulo = inputTitulo.value;
     let director = inputDirector.value;
     let peliculasResultantes = realizarBusquedaNombreyDirector(titulo,director);
-    mostrarPeliculasHTML(peliculasResultantes);
+    if(peliculasResultantes !== null){
+        marcarInputComoCorrecto(inputTitulo)
+        mostrarPeliculasHTML(peliculasResultantes);
+    }else{
+        marcarInputComoErroneo(inputTitulo,erroresFiltrarTD);
+    }
+    
 }
 
 /**
@@ -18,7 +29,7 @@ function filtrarTituloDirector(){
 function realizarBusquedaNombreyDirector(titulo,director){
 	let peliculasResultantes = peliculas.filter( pelicula => pelicula.contieneTitulo(titulo) 
                                                                 && pelicula.contieneDirector(director)
-	);
+    );
 	return peliculasResultantes;
 }
 
@@ -55,8 +66,14 @@ function mismoGenero(genero){
 function filtrarUsuario(){
     let inputUsuario = document.getElementById("usuario");
     let nombre = inputUsuario.value.trim().toUpperCase();
-    let peliculasFavoritas = peliculasUsuario(nombre);
-    mostrarPeliculasHTML(peliculasFavoritas);
+    let peliculasFavoritas = [];
+    let esNombreCorrecto = validarNombreUsuario(inputUsuario,erroresFiltrarPF);
+
+    if(esNombreCorrecto){
+        peliculasFavoritas = peliculasUsuario(nombre);
+            mostrarPeliculasHTML(peliculasFavoritas);
+       
+    }
 }
 
 /**
@@ -65,7 +82,13 @@ function filtrarUsuario(){
  */
 function peliculasUsuario(nombre){
     let usuario = listaClientes.find( cliente => cliente.contieneNombre(nombre));
-    return usuario.peliculasFav;
+    let arrayVacio = [];
+    if(usuario !== undefined){
+        return usuario.peliculasFav;
+    }else{
+        return arrayVacio;
+    }
+    
 }
 
 /**

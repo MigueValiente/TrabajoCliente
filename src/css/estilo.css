@@ -83,7 +83,14 @@ main[id = "gestionForm"]{
 }
 
 
-
+button[id = "botonEjecutarPruebas"]{
+    border: solid black 1px;
+    border-radius: 20px;
+    width: 100px;
+    height: 100px;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(240, 0, 0, 1);
+}
 
 
 .añadirPelicula{
@@ -122,6 +129,10 @@ button{
 }
 
 
+.filtrar{
+    display: flex;
+    flex-direction: column;
+}
 
 .OrdenarPor{
     display: flex;

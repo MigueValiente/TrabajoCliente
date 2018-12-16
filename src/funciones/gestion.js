@@ -8,7 +8,7 @@ function pelisMasVotadas(){
     let inputLongitud = document.getElementById("longitudTitulo");
     let longitud = inputLongitud.value;
     let pelisResultado = [];
-
+    vaciarDivErrores(erroresPelisMasVotadas);
     let esLongitudCorrecta = validarLogitud(inputLongitud,erroresPelisMasVotadas);
 
     if(esLongitudCorrecta){
@@ -31,7 +31,7 @@ function peliMejorValorada(){
     let genero = inputGenero.value;
     let pelisGenero = [];
     let peliculaResultado = [];
-
+    vaciarDivErrores(erroresPeliMasVotada);
     let esGeneroCorrecto = validarGenero(inputGenero,erroresPeliMasVotada);
 
     if(esGeneroCorrecto){
@@ -59,7 +59,7 @@ function ordenarPor(){
     let inputOrden = document.getElementById("orden");
     let orden = inputOrden.value;
     let peliculasOrdenadas = [];
-
+    vaciarDivErrores(erroresOrdenarPor);
     let esOrdenCorrecto = validarOpcionSeleccionada(inputOrden,erroresOrdenarPor);
 
     if(esOrdenCorrecto){

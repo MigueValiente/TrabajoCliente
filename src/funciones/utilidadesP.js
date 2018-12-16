@@ -3,7 +3,7 @@
  * @param {string} cadena es la cadena a tratar
  */
 function tratarCadenasInput(cadena){
-    let cadenaResultante = null;
+    let cadenaResultante = undefined;
     if(typeof(cadena) === "string"){
         let cadenaTratada = cadena.trim().toUpperCase();
         cadenaTratada = cadenaTratada.replace(/\s{2,}/g," ");
@@ -41,15 +41,15 @@ function incluirPeliculaHTML(pelicula){
  * @param {nodo} inputTitulo es el nodo del titulo de la pelicula
  * @param {nodo} divErrores es el nodo al que se añade el texto de error en caso de que no sea correcto
  */
-function validarTituloPelicula(inputTitulo,divErrores){
+function validarTituloPeliculaP(cadena){
 	let esCorrecto = false;
-	let tituloTratado = tratarCadenasInput(inputTitulo.value);
+	let tituloTratado = tratarCadenasInput(cadena);
 
-	if(tituloTratado === null || tituloTratado.length <= 1){
-		marcarInputComoErroneo(inputTitulo,divErrores,'El titulo es erroneo<br>');
+	if(tituloTratado === undefined || tituloTratado.length <= 1){
+		// marcarInputComoErroneo(inputTitulo,divErrores,'El titulo es erroneo<br>');
 	}else{
 		esCorrecto = true;
-		marcarInputComoCorrecto(inputTitulo);
+		// marcarInputComoCorrecto(inputTitulo);
 	}
 	return esCorrecto;
 }
@@ -59,28 +59,28 @@ function validarTituloPelicula(inputTitulo,divErrores){
  * @param {nodo} inputPelicula es el nodo de la pelicula seleccionada
  * @param {nodo} divErrores es el nodo al que se añade el texto de error en de que no se haya seleccionado ninguna pelicula
  */
-function validarPeliculaSeleccionada(inputPelicula,divErrores){
+function validarPeliculaSeleccionadaP(cadena){
 	let esCorrecto = false;
-	let peliculaTratada = tratarCadenasInput(inputPelicula.value);
+	let peliculaTratada = tratarCadenasInput(cadena);
 
-	if(peliculaTratada === null || peliculaTratada.length <= 1){
-		marcarInputComoErroneo(inputPelicula,divErrores,'Debe seleccionar una pelicula<br>');
+	if(peliculaTratada === undefined || peliculaTratada.length <= 1){
+		// marcarInputComoErroneo(inputPelicula,divErrores,'Debe seleccionar una pelicula<br>');
 	}else{
 		esCorrecto = true;
-		marcarInputComoCorrecto(inputPelicula);
+		// marcarInputComoCorrecto(inputPelicula);
 	}
 	return esCorrecto;
 }
 
-function validarOpcionSeleccionada(inputOpcion,divErrores){
+function validarOpcionSeleccionadaP(cadena){
 	let esCorrecto = false;
-	let opcionTratada = tratarCadenasInput(inputOpcion.value);
+	let opcionTratada = tratarCadenasInput(cadena);
 
-	if(opcionTratada === null || opcionTratada.length <= 1){
-		marcarInputComoErroneo(inputOpcion,divErrores,'Debe seleccionar una opcion<br>');
+	if(opcionTratada === undefined || opcionTratada.length <= 1){
+		// marcarInputComoErroneo(inputOpcion,divErrores,'Debe seleccionar una opcion<br>');
 	}else{
 		esCorrecto = true;
-		marcarInputComoCorrecto(inputOpcion);
+		// marcarInputComoCorrecto(inputOpcion);
 	}
 	return esCorrecto;
 }
@@ -90,16 +90,16 @@ function validarOpcionSeleccionada(inputOpcion,divErrores){
  * @param {nodo} inputNombreD es el nodo del nombre del director
  * @param {nodo} divErrores es el nodo al que se añade el texto de error en caso de que no sea correcto
  */
-function validarNombreD(inputNombreD,divErrores){
+function validarNombreDP(cadena){
 	let esCorrecto = false;
 	// debugger;
-	let nombreTratado = tratarCadenasInput(inputNombreD.value);
+	let nombreTratado = tratarCadenasInput(cadena);
 	let expresion = /^[A-Z]{2,}$/g
 	if(!expresion.test(nombreTratado)){
-		marcarInputComoErroneo(inputNombreD,divErrores,'El nombre del director es erroneo<br>');
+		// marcarInputComoErroneo(inputNombreD,divErrores,'El nombre del director es erroneo<br>');
 	}else{
 		esCorrecto = true;
-		marcarInputComoCorrecto(inputNombreD);
+		// marcarInputComoCorrecto(inputNombreD);
 	}
 	return esCorrecto;
 }
@@ -109,15 +109,15 @@ function validarNombreD(inputNombreD,divErrores){
  * @param {nodo} inputApellidoD es el nodo del apellido del director
  * @param {nodo} divErrores es el nodo al que se añade el texto de error en caso de que no sea correcto
  */
-function validarApellidoD(inputApellidoD,divErrores){
+function validarApellidoDP(cadena){
 	let esCorrecto = false;
-	let apellidoTratado = tratarCadenasInput(inputApellidoD.value);
+	let apellidoTratado = tratarCadenasInput(cadena);
 
-	if(apellidoTratado === null || apellidoTratado.length < 1){
-		marcarInputComoErroneo(inputApellidoD,divErrores,'El apellido del director es erroneo<br>');
+	if(apellidoTratado === undefined || apellidoTratado.length < 1){
+		// marcarInputComoErroneo(inputApellidoD,divErrores,'El apellido del director es erroneo<br>');
 	}else{
 		esCorrecto = true;
-		marcarInputComoCorrecto(inputApellidoD);
+		// marcarInputComoCorrecto(inputApellidoD);
 	}
 	return esCorrecto;
 }
@@ -127,16 +127,16 @@ function validarApellidoD(inputApellidoD,divErrores){
  * @param {nodo} inputNombreUsuario es el nodo del nombre del usuario
  * @param {nodo} divErrores es el nodo al que se añade el texto de error en caso de que no sea correcto
  */
-function validarNombreUsuario(inputNombreUsuario,divErrores){
+function validarNombreUsuarioP(cadena){
 	let esCorrecto = false;
 	// debugger;
-	let nombreTratado = tratarCadenasInput(inputNombreUsuario.value);
+	let nombreTratado = tratarCadenasInput(cadena);
 	let expresion = /^[A-Z]{2,}$/g
 	if(!expresion.test(nombreTratado)){
-		marcarInputComoErroneo(inputNombreUsuario,divErrores,'El nombre del usuario es obligatorio<br>');
+		// marcarInputComoErroneo(inputNombreUsuario,divErrores,'El nombre del usuario es obligatorio<br>');
 	}else{
 		esCorrecto = true;
-		marcarInputComoCorrecto(inputNombreUsuario);
+		// marcarInputComoCorrecto(inputNombreUsuario);
 	}
 	return esCorrecto;
 }
@@ -146,15 +146,15 @@ function validarNombreUsuario(inputNombreUsuario,divErrores){
  * @param {nodo} inputGenero es el nodo del genero
  * @param {nodo} divErrores es el nodo al que se añade el texto de error en caso de que no sea correcto
  */
-function validarGenero(inputGenero,divErrores){
+function validarGeneroP(cadena){
 	let esCorrecto = false;
-	let generoTratado = tratarCadenasInput(inputGenero.value);
+	let generoTratado = tratarCadenasInput(cadena);
 
-	if(generoTratado === null || generoTratado === ""){
-		marcarInputComoErroneo(inputGenero,divErrores,'El genero es erroneo<br>');
+	if(generoTratado === undefined || generoTratado === ""){
+		// marcarInputComoErroneo(inputGenero,divErrores,'El genero es erroneo<br>');
 	}else{
 		esCorrecto = true;
-		marcarInputComoCorrecto(inputGenero);
+		// marcarInputComoCorrecto(inputGenero);
 	}
 	return esCorrecto;
 }
@@ -164,28 +164,28 @@ function validarGenero(inputGenero,divErrores){
  * @param {nodo} inputNombreP es el nodo del nombre de la productora
  * @param {nodo} divErrores es el nodo al que se añade el texto de error en caso de que no sea correcto
  */
-function validarNombreP(inputNombreP,divErrores){
+function validarNombrePP(cadena){
 	let esCorrecto = false;
-	let nombreTratado = tratarCadenasInput(inputNombreP.value);
+	let nombreTratado = tratarCadenasInput(cadena);
 
-	if(nombreTratado === null || nombreTratado.length < 2){
-		marcarInputComoErroneo(inputNombreP,divErrores,'El nombre de la productora es erroneo<br>');
+	if(nombreTratado === undefined || nombreTratado.length < 2){
+		// marcarInputComoErroneo(inputNombreP,divErrores,'El nombre de la productora es erroneo<br>');
 	}else{
 		esCorrecto = true;
-		marcarInputComoCorrecto(inputNombreP);
+		// marcarInputComoCorrecto(inputNombreP);
 	}
 	return esCorrecto;
 }
 
-function validarLogitud(inputLongitud,divErrores){
+function validarLogitudP(longitud){
 	let esCorrecto = false;
-	let longitudTratada = inputLongitud.value;
+	let longitudTratada = longitud;
 
-	if(longitudTratada === null || longitudTratada <= 0){
-		marcarInputComoErroneo(inputLongitud,divErrores,'La longitud no puede ser menor que 0<br>');
+	if(longitudTratada === undefined || longitudTratada <= 0){
+		// marcarInputComoErroneo(inputLongitud,divErrores,'La longitud no puede ser menor que 0<br>');
 	}else{
 		esCorrecto = true;
-		marcarInputComoCorrecto(inputLongitud);
+		// marcarInputComoCorrecto(inputLongitud);
 	}
 	return esCorrecto;
 }
@@ -266,7 +266,7 @@ function crearOpciones(input){
 	}
 }
 
-function crearOpcionesPersonalizadas(nombre,input){
+function crearOpcionesPersonalizadasP(nombre,input){
 	let usuario = listaClientes.find(cliente => cliente.nombre === nombre);
 	let pelisFavoritas = usuario.peliculasFav;
 	input.innerHTML = "";
