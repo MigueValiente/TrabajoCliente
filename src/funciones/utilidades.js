@@ -265,7 +265,11 @@ function crearOpciones(input){
 		// inputPeliculaP.appendChild(opcion.cloneNode(true));
 	}
 }
-
+/**
+ * Funcion que en funcion de las peliculas favoritas de un usuario cambia el select de las peliculas
+ * @param {string} nombre es el nombre de usuario
+ * @param {nodo} input es el nodo donde apareceran las opciones
+ */
 function crearOpcionesPersonalizadas(nombre,input){
 	let usuario = listaClientes.find(cliente => cliente.nombre === nombre);
 	let pelisFavoritas = usuario.peliculasFav;

@@ -76,28 +76,6 @@ function crearOpciones(input){
 		// inputPeliculaP.appendChild(opcion.cloneNode(true));
 	}
 }
-/**
- * Funcion que en funcion de las peliculas favoritas de un usuario cambia el select de las peliculas
- * @param {string} nombre es el nombre de usuario
- * @param {nodo} input es el nodo donde apareceran las opciones
- */
-function crearOpcionesPersonalizadas(nombre,input){
-	let usuario = listaClientes.find(cliente => cliente.nombre === nombre);
-	let pelisFavoritas = usuario.peliculasFav;
-	input.innerHTML = "";
-	let opcionDefault = document.createElement("option");
-		opcionDefault.className = "opcion";
-		opcionDefault.setAttribute("value", "");
-		opcionDefault.innerHTML = `-Seleccionar-`;
-	input.appendChild(opcionDefault);
-	for (const peliFavorita of pelisFavoritas) {
-		let opcion = document.createElement("option");
-		opcion.className = "opcion";
-		opcion.setAttribute("value", quitarEspacios(peliFavorita.titulo));
-		opcion.innerHTML = `${peliFavorita.titulo}`;
-		input.appendChild(opcion);
-	}
-}
 
 /**
  * Funcion que muestra en la pagina las peliculas votadas por un usuario
