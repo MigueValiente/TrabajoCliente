@@ -23,11 +23,75 @@
         </nav>
     </header>
     <h1>Pagina de Gestion</h1>
-    <main>
-        
-        <section>
+    <main id="gestionForm">
+        <section class="form">
+            <fieldset>
+                <legend>Funcion Más Votado y Requisitos</legend>
+                <div class="pelisVotadas">
+                        <!-- <label for="peliculaVR">Pelicula</label>
+                        <select id="peliculaVR" name="peliculaVR">
+                                <option value="">-Seleccionar-</option>
+                                
+                        </select><br> -->
+                        <label for="longitudTitulo">Longitud Minima del Titulo</label>
+                        <input type="number" id="longitudTitulo" name="longitudTitulo">
+                    <button type="button" class="botonPelisMasVotadas" id="botonPelisMasVotadas">BUSCAR</button>
+                </div>
 
+                <div class="errores" id="erroresPelisMasVotadas">
+
+
+                </div>
+            </fieldset>
         </section>
+
+        <section class="form">
+                <fieldset>
+                    <legend>Funcion Pelicula Mejor Valorada</legend>
+                    <div class="PeliMasVotada">
+                        <label for="genero">Funcion Filtrar por Genero</label>
+                        <select id="genero" name="genero">
+                            <option value="">-Seleccionar-</option>
+                            <option value="superheroes">Superheroes</option>
+                            <option value="terror">Terror</option>
+                            <option value="fantasia">Fantasia</option>
+                            <option value="aventuras">Aventuras</option>
+                            <option value="accion">Accion</option>
+                            <option value="musical">Musical</option>
+                        </select>
+                        <button type="button" class="botonPeliMasVotada" id="botonPeliMasVotada">BUSCAR</button>
+                    </div>
+    
+                    <div class="errores" id="erroresPeliMasVotada">
+    
+    
+                    </div>
+                </fieldset>
+            </section>
+
+            <section class="form">
+                    <fieldset>
+                        <legend>Funcion Ordenar Peliculas por</legend>
+                        <div class="OrdenarPor">
+                            <label for="orden">Ordenar Por</label>
+                            <select id="orden" name="orden">
+                                <option value="">-Seleccionar-</option>
+                                <option value="titulo">Titulo</option>
+                                <option value="genero">Genero</option>
+                                <option value="director">Director</option>
+                                <option value="productora">Productora</option>
+                                <option value="likes">Likes</option>
+                                <option value="dislikes">Dislikes</option>
+                            </select>
+                            <button type="button" class="botonOrdenarPor" id="botonOrdenarPor">BUSCAR</button>
+                        </div>
+        
+                        <div class="errores" id="erroresOrdenarPor">
+        
+        
+                        </div>
+                    </fieldset>
+                </section>
 
         <section>
             <h1>Peliculas</h1>

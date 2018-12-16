@@ -31,9 +31,9 @@ let IronMan = new Pelicula("Iron-Man",directorFavreau/*,"30/4/2008"*/,"Superhero
 let DoctorStrange = new Pelicula("Doctor Strange",directorDerrickson/*,"14/7/1852"*/,"Superheroes",marvelStudio/*,18.95*/);
 let Vengadores = new Pelicula("Los Vengadores",directorWhedon/*,"4/5/2012"*/,"Superheroes",marvelStudio/*,14.95*/);
 let Conjuring = new Pelicula("The Conjuring",directorWan,"Terror",newLineCinema);
-let SeñorAnillos1 = new Pelicula("La Comunidad del Anillo",directorJackson,"Fantasia",wingNutFilms);
-let SeñorAnillos2 = new Pelicula("La Dos Torres",directorJackson,"Fantasia",wingNutFilms);
-let SeñorAnillos3 = new Pelicula("El Retorno del Rey",directorJackson,"Fantasia",wingNutFilms);
+let SeñorAnillos1 = new Pelicula("Señor de los Anillos 1",directorJackson,"Fantasia",wingNutFilms);
+let SeñorAnillos2 = new Pelicula("Señor de los Anillos 2",directorJackson,"Fantasia",wingNutFilms);
+let SeñorAnillos3 = new Pelicula("Señor de los Anillos 3",directorJackson,"Fantasia",wingNutFilms);
 let Tiburon1 = new Pelicula("Tiburón",directorSpielberg,"Terror",universalStudios);
 let JurassicPark = new Pelicula("Jurassic Park",directorSpielberg,"Aventuras",amblingEntertainment);
 let Aquaman = new Pelicula("Aquaman",directorWan,"Superheroes",dcFilms);
@@ -131,6 +131,27 @@ directorMuschietti.incluirPeliculas(It);
 directorKleiser.incluirPeliculas(Grease);
 
 directorStahelski.incluirPeliculas(JohnWick);
+
+//CREACION DE VOTOS
+
+let voto1 = new Votos(clientePepe,IronMan,"like","");
+let voto2 = new Votos(clienteJorge,IronMan,"like","");
+let voto3 = new Votos(clientePepe,SeñorAnillos1,"dislike","");
+let voto4 = new Votos(clienteJorge,Aquaman,"dislike","");
+let voto5 = new Votos(clienteJorge,IronMan,"dislike","");
+let voto6 = new Votos(clienteJorge,DoctorStrange,"dislike","");
+let voto7 = new Votos(clienteJorge,IronMan,"like","");
+let voto8 = new Votos(clienteJorge,Tiburon1,"like","");
+let voto9 = new Votos(clienteJorge,Conjuring,"like","");
+let voto10 = new Votos(clientePepe,IronMan,"like","");
+let voto11 = new Votos(clientePepe,Vengadores,"like","");
+let voto12 = new Votos(clientePepe,IronMan,"dislike","");
+let voto13 = new Votos(clientePepe,JurassicPark,"like","");
+let voto14 = new Votos(clientePepe,IronMan,"like","");
+let voto15 = new Votos(clientePepe,JohnWick,"like","");
+let voto16 = new Votos(clienteJorge,JohnWick,"like","");
+
+
 
 mostrarPeliculasHTML(peliculas);
 //Declarar Votos

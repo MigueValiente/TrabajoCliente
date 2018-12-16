@@ -72,6 +72,19 @@ function validarPeliculaSeleccionada(inputPelicula,divErrores){
 	return esCorrecto;
 }
 
+function validarOpcionSeleccionada(inputOpcion,divErrores){
+	let esCorrecto = false;
+	let opcionTratada = tratarCadenasInput(inputOpcion.value);
+
+	if(opcionTratada === null || opcionTratada.length <= 1){
+		marcarInputComoErroneo(inputOpcion,divErrores,'Debe seleccionar una opcion<br>');
+	}else{
+		esCorrecto = true;
+		marcarInputComoCorrecto(inputOpcion);
+	}
+	return esCorrecto;
+}
+
 /**
  * Funcion que recibe dos nodos y valida el nombre del director
  * @param {nodo} inputNombreD es el nodo del nombre del director
@@ -163,6 +176,19 @@ function validarNombreP(inputNombreP,divErrores){
 	}
 	return esCorrecto;
 }
+
+function validarLogitud(inputLongitud,divErrores){
+	let esCorrecto = false;
+	let longitudTratada = inputLongitud.value;
+
+	if(longitudTratada === null || longitudTratada <= 0){
+		marcarInputComoErroneo(inputLongitud,divErrores,'La longitud no puede ser menor que 0<br>');
+	}else{
+		esCorrecto = true;
+		marcarInputComoCorrecto(inputLongitud);
+	}
+	return esCorrecto;
+}
 /**
  * Funcion que elimina los espacios de la cadena
  * @param {string} cadena es la cadena a tratar
@@ -227,3 +253,15 @@ function blur(event){
     input.style.backgroundColor = "";
 }
 
+function crearOpciones(input){
+	// let inputPeliculaC = document.getElementById("peliculaC");
+	// debugger;
+	for (let pelicula of peliculas) {
+		let opcion = document.createElement("option");
+		opcion.className = "opcion";
+		opcion.setAttribute("value", quitarEspacios(pelicula.titulo));
+		opcion.innerHTML = `${pelicula.titulo}`;
+		input.appendChild(opcion);
+		// inputPeliculaP.appendChild(opcion.cloneNode(true));
+	}
+}

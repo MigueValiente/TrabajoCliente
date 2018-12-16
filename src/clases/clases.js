@@ -275,7 +275,7 @@ class Pelicula{
 	}
 
 	get productora(){
-		return `${this._productora}`;
+		return this._productora;
 	}
 
 	set productora(productora){
@@ -383,7 +383,7 @@ class Pelicula{
 		this.likes = 0;
 		this.dislikes = 0;
 		for (let i = 0; i < this.votos.length; i++) {
-			if(this.votos[i].puntuacion === "like"){
+			if(this.votos[i]._puntuacion === "like"){
 				this.likes++;
 			}else{
 				this.dislikes++;
@@ -400,6 +400,9 @@ class Votos{
 		this.pelicula = pelicula;
 		this.puntuacion = puntuacion;
 		this.comentario = comentario;
+		cliente.incluirVoto(this);
+		pelicula.incluirVoto(this);
+		
 	}
 
 	get puntuacion(){
