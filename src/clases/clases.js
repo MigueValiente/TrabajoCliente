@@ -400,8 +400,8 @@ class Votos{
 		this.pelicula = pelicula;
 		this.puntuacion = puntuacion;
 		this.comentario = comentario;
-		// cliente.incluirVoto(this);
-		// pelicula.incluirVoto(this);
+		cliente.incluirVoto(this);
+		pelicula.incluirVoto(this);
 		
 	}
 

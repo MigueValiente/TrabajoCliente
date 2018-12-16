@@ -24,9 +24,7 @@ function realizarComentario(){
 		let usuario = listaClientes.find(cliente => cliente.contieneNombre(inputNombreUsuario.value));
 		let pelicula = peliculas.find(pelicula => quitarEspacios(pelicula.titulo) === inputPeliculaC.value);
 		if(usuario !== undefined && pelicula !== undefined){
-			let nuevoVoto = new Votos(inputNombreUsuario.value,inputPeliculaC.value,inputVoto,inputComentario.value);
-			usuario.incluirVoto(nuevoVoto);
-			pelicula.incluirVoto(nuevoVoto);
+			let nuevoVoto = new Votos(usuario,pelicula,inputVoto,inputComentario.value);
 		}
 		mostrarPeliculasHTML(peliculas);
 		console.log("Comentario realizado con exito");

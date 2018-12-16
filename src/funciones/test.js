@@ -295,27 +295,27 @@ function realizarPruebasGestion(){
 
 function realizarPruebaRealizarComentario(){
     console.log('Pruebas Realizar Comentario');
-	let prueba1 = realizarComentarioP('Pepe','Iron-Man','Like','Me gusta mucho.'); 
-	console.log('Prueba1: realizarComentarioP(\'Pepe\',\'Iron-Man\',\'Like\',\'Me gusta mucho.\')');
+	let prueba1 = realizarComentarioP(clientePepe,IronMan,'Like','Me gusta mucho.'); 
+	console.log('Prueba1: realizarComentarioP(clientePepe,\'Iron-Man\',\'Like\',\'Me gusta mucho.\')');
 	if(prueba1 === true){
 		console.log('Prueba1 Correcta');
 	}else{
 		console.log('Prueba1 Incorrecta');
     }
-    
-	let prueba2 = realizarComentarioP('Pepe','Iron-Woman','Like','Me gusta mucho.'); 
-	console.log('Prueba2: realizarComentarioP(\'Pepe\',\'Iron-Woman\',\'Like\',\'Me gusta mucho.\')');
+    let IronWoman;
+	let prueba2 = realizarComentarioP(clientePepe,IronWoman,'Like','Me gusta mucho.'); 
+	console.log('Prueba2: realizarComentarioP(clientePepe,\'Iron-Woman\',\'Like\',\'Me gusta mucho.\')');
 	if(prueba2 === false){
 		console.log('Prueba2 Correcta');
 	}else{
 		console.log('Prueba2 Incorrecta');
     }
     
-    let prueba3 = realizarComentarioP('Pepe','Iron-Man','','Me gusta mucho.'); 
-	console.log('Prueba3: realizarComentarioP(\'Pepe\',\'Iron-Man\',\'\',\'Me gusta mucho.\')');
+    let prueba3 = realizarComentarioP(clientePepe,IronMan,'','Me gusta mucho.'); 
+	console.log('Prueba3: realizarComentarioP(clientePepe,\'Iron-Man\',\'\',\'Me gusta mucho.\')');
     prueba3 === false?console.log('Prueba 3 correcta'):console.log('Prueba 3 incorrecta');
     
-	let prueba4 = realizarComentarioP('','Iron-Man','Like','Me gusta mucho.'); 
+	let prueba4 = realizarComentarioP('',IronMan,'Like','Me gusta mucho.'); 
 	console.log('Prueba4: realizarComentarioP(\'\',\'Iron-Man\',\'Like\',\'Me gusta mucho.\')');
 	prueba4 === false?console.log('Prueba 4 correcta'):console.log('Prueba 4 incorrecta');
 
